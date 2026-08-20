@@ -217,9 +217,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Generated ingestion artifacts (regenerable from chunks_fullerton.py + generate_sql.py;
+# Generated ingestion artifacts (regenerable from the ingest_*.py scripts;
 # contain raw embedding vectors, not meant for review)
-scripts/ingest/ingest_fullerton.sql
+scripts/ingest/*.sql
 scripts/ingest/split/
 
 # Node
