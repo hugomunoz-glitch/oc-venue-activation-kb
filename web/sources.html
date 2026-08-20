@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OC Venue Activation KB — Sources</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666666;
+    --border: #dddddd;
+    --accent: #7a3b2e;
+    --card-bg: #f7f5f3;
+    --code-bg: #eeeeee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15130f;
+      --fg: #ece8e2;
+      --muted: #a39d92;
+      --border: #3a352d;
+      --accent: #d99b7d;
+      --card-bg: #201d18;
+      --code-bg: #2a251e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+    line-height: 1.5;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+  nav { margin-bottom: 24px; font-size: 0.9rem; }
+  nav a { color: var(--accent); text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  #status { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+  .summary-row { display: flex; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+  .summary-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 18px;
+    background: var(--card-bg);
+    min-width: 120px;
+  }
+  .summary-card .num { font-size: 1.6rem; font-weight: 700; }
+  .summary-card .label { font-size: 0.75rem; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  tr:hover td { background: var(--card-bg); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    background: var(--code-bg);
+    color: var(--fg);
+  }
+  .table-wrap { overflow-x: auto; }
+  .empty { color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+  <h1>Source Management</h1>
+  <div class="subtitle">Every document, API pull, and website ingested into the OC Venue Activation KB</div>
+  <nav><a href="index.html">&larr; Back to search</a></nav>
+
+  <div id="status">Loading sources…</div>
+  <div class="summary-row" id="summary"></div>
+  <div class="table-wrap">
+    <table id="sources-table" style="display:none">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Source</th>
+          <th>Chunks</th>
+          <th>Retrieved</th>
+          <th>Effective</th>
+        </tr>
+      </thead>
+      <tbody id="sources-body"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const SUPABASE_URL = "https://mcjkyxmbmetzhyrcklsi.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jamt5eG1ibWV0emh5cmNrbHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3MzIwNzcsImV4cCI6MjEwMjMwODA3N30.2cXyDpP5J1wp9lUDmOV3B_KlKkWv0av3FyPzCO4Rawg";
+
+    const TYPE_LABELS = {
+      municipal_code: "Municipal Code",
+      fee_schedule: "Fee Schedule",
+      permit_application: "Permit Application",
+      submittal_checklist: "Submittal Checklist",
+      api: "API",
+      website: "Website",
+      other: "Other",
+    };
+
+    function escapeHtml(str) {
+      const div = document.createElement("div");
+      div.textContent = str ?? "";
+      return div.innerHTML;
+    }
+
+    async function fetchDocuments() {
+      const res = await fetch(
+        `${SUPABASE_URL}/rest/v1/documents?select=id,title,source_type,source_name,source_file,source_key,retrieved_date,effective_date,notes&order=source_type.asc,title.asc`,
+        {
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+        }
+      );
+      if (!res.ok) throw new Error(`documents fetch failed: ${res.status}`);
+      return res.json();
+    }
+
+    async function fetchChunkCounts() {
+      // Supabase REST doesn't do GROUP BY directly; pull document_id per chunk
+      // and count client-side. Fine at this KB's current scale.
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/chunks?select=document_id`, {
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+      });
+      if (!res.ok) throw new Error(`chunks fetch failed: ${res.status}`);
+      const rows = await res.json();
+      const counts = {};
+      rows.forEach((r) => {
+        counts[r.document_id] = (counts[r.document_id] || 0) + 1;
+      });
+      return counts;
+    }
+
+    async function main() {
+      const statusEl = document.getElementById("status");
+      const summaryEl = document.getElementById("summary");
+      const tableEl = document.getElementById("sources-table");
+      const bodyEl = document.getElementById("sources-body");
+
+      try {
+        const [docs, chunkCounts] = await Promise.all([fetchDocuments(), fetchChunkCounts()]);
+
+        const byType = {};
+        docs.forEach((d) => {
+          byType[d.source_type] = (byType[d.source_type] || 0) + 1;
+        });
+        const totalChunks = Object.values(chunkCounts).reduce((a, b) => a + b, 0);
+
+        summaryEl.innerHTML = `
+          <div class="summary-card"><div class="num">${docs.length}</div><div class="label">Documents</div></div>
+          <div class="summary-card"><div class="num">${totalChunks}</div><div class="label">Chunks</div></div>
+          ${Object.entries(byType)
+            .map(
+              ([type, count]) =>
+                `<div class="summary-card"><div class="num">${count}</div><div class="label">${escapeHtml(TYPE_LABELS[type] || type)}</div></div>`
+            )
+            .join("")}
+        `;
+
+        statusEl.textContent = "";
+        bodyEl.innerHTML = docs
+          .map((d) => {
+            const sourceRef = d.source_key || d.source_file || "—";
+            const isUrl = sourceRef.startsWith("http");
+            const sourceCell = isUrl
+              ? `<a href="${escapeHtml(sourceRef)}" target="_blank" rel="noopener">${escapeHtml(d.source_name || sourceRef)}</a>`
+              : escapeHtml(d.source_name || sourceRef);
+            return `
+              <tr>
+                <td>${escapeHtml(d.title)}</td>
+                <td><span class="badge">${escapeHtml(TYPE_LABELS[d.source_type] || d.source_type)}</span></td>
+                <td>${sourceCell}</td>
+                <td>${chunkCounts[d.id] || 0}</td>
+                <td>${escapeHtml(d.retrieved_date)}</td>
+                <td>${escapeHtml(d.effective_date || "—")}</td>
+              </tr>
+            `;
+          })
+          .join("");
+        tableEl.style.display = "table";
+      } catch (err) {
+        statusEl.textContent = `Error loading sources: ${err.message}`;
+      }
+    }
+
+    main();
+  </script>
+</body>
+</html>
