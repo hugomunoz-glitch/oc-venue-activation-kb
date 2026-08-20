@@ -70,21 +70,37 @@ def build_document_sql(doc: dict) -> str:
         )
 
     chunk_values_sql = ",\n".join(chunk_rows)
+    source_key = doc.get("source_key") or doc["source_file"]
+    # Idempotent: re-running this script upserts the document by source_key
+    # (unique constraint) and replaces its chunks, rather than duplicating them.
     return f"""
 with target_city as (
   select id from cities where name = {sql_literal(CITY)}
 ),
-new_doc as (
-  insert into documents (city_id, title, source_type, code_chapter, source_name, source_file, retrieved_date, effective_date, effective_date_confidence, notes)
+upserted_doc as (
+  insert into documents (city_id, title, source_type, code_chapter, source_name, source_file, source_key, retrieved_date, effective_date, effective_date_confidence, notes)
   select id, {sql_literal(doc['title'])}, {sql_literal(doc['source_type'])}, {sql_literal(doc['code_chapter'])},
-         {sql_literal(doc['source_name'])}, {sql_literal(doc['source_file'])}, {sql_literal(doc['retrieved_date'])}::date,
+         {sql_literal(doc['source_name'])}, {sql_literal(doc['source_file'])}, {sql_literal(source_key)}, {sql_literal(doc['retrieved_date'])}::date,
          {sql_literal(doc['effective_date'])}::date, {sql_literal(doc['effective_date_confidence'])}, {sql_literal(doc['notes'])}
   from target_city
+  on conflict (source_key) do update set
+    title = excluded.title,
+    source_type = excluded.source_type,
+    code_chapter = excluded.code_chapter,
+    source_name = excluded.source_name,
+    source_file = excluded.source_file,
+    retrieved_date = excluded.retrieved_date,
+    effective_date = excluded.effective_date,
+    effective_date_confidence = excluded.effective_date_confidence,
+    notes = excluded.notes
   returning id, city_id
+),
+cleared_chunks as (
+  delete from chunks where document_id in (select id from upserted_doc)
 )
 insert into chunks (document_id, city_id, chunk_index, section_reference, content, embedding)
-select new_doc.id, new_doc.city_id, v.idx, v.section_reference, v.content, v.embedding
-from new_doc, (values
+select upserted_doc.id, upserted_doc.city_id, v.idx, v.section_reference, v.content, v.embedding
+from upserted_doc, (values
 {chunk_values_sql}
 ) as v(idx, section_reference, content, embedding);
 """
@@ -108,13 +124,16 @@ def build_fee_schedules_sql() -> str:
         )
 
     fee_values_sql = ",\n".join(value_rows)
+    # Idempotent: clears this document's previous fee_schedules rows before reinserting.
     return f"""
 with target_city as (
   select id from cities where name = {sql_literal(CITY)}
 ),
 fee_doc as (
-  select id from documents where source_file = 'source-docs/fullerton/permit-applications/special-event-permit-application-with-fees.pdf'
-  order by created_at desc limit 1
+  select id from documents where source_key = 'source-docs/fullerton/permit-applications/special-event-permit-application-with-fees.pdf'
+),
+cleared_fees as (
+  delete from fee_schedules where source_document_id in (select id from fee_doc)
 )
 insert into fee_schedules (city_id, permit_type, fee_name, amount_usd, amount_usd_min, amount_usd_max, amount_type, code_section, applies_to_track, effective_date, effective_date_confidence, source_document_id, notes)
 select target_city.id, v.permit_type, v.fee_name, v.amount_usd, v.amount_usd_min, v.amount_usd_max, v.amount_type, v.code_section, v.applies_to_track,
