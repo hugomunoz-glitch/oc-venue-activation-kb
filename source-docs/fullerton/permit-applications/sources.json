@@ -1,0 +1,23 @@
+{
+  "city": "Fullerton",
+  "documents": [
+    {
+      "file": "special-event-permit-application-with-fees.pdf",
+      "title": "Application for a Special Event Permit (Private Property and/or Public Property)",
+      "source": "City of Fullerton, jointly administered by Community Development (private property track) and Public Works Engineering (public property track)",
+      "retrieved_by": "user (manual download)",
+      "retrieved_date": "2026-08-14",
+      "form_revision_marker": "Filename footer reads 'SpecialEventPermitApp - Public Property - UPDATED 03-10-26.pdf' - treat 2026-03-10 as the fee table's effective/last-updated date until a more authoritative fee resolution date is found",
+      "notes": "Pages 3-6 of this PDF duplicate Chapter 15.58 text already captured in municipal-code/chapter-15.58-special-events-private-property.pdf - used here only to cross-verify, not as a separate source. Page 2 is a generic 'Master Application Form' (dated 6/24/2019) used for CUP and other planning actions - not fee-bearing."
+    },
+    {
+      "file": "planning-submittal-requirements-checklist.pdf",
+      "title": "Submittal Requirements for Plans and Associated Application Materials",
+      "source": "City of Fullerton Community Development Department (Planning Division)",
+      "retrieved_by": "user (manual download)",
+      "retrieved_date": "2026-08-14",
+      "document_revision_marker": "REV 2-23-16 (per footer) - i.e. last revised 2016, well before this project's ingestion date; flag as possibly stale if cited",
+      "notes": "General checklist of plan/document attachments required for planning applications (site plans, CUPs, subdivisions, etc.). Procedural/completeness reference, not a fee or permit-threshold source. Relevant context for CUP applications (Chapter 15.70) and site-plan-heavy activation buildouts."
+    }
+  ]
+}

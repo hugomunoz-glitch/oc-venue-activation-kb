@@ -1,0 +1,38 @@
+{
+  "city": "Fullerton",
+  "documents": [
+    {
+      "file": "chapter-15.58-special-events-private-property.pdf",
+      "title": "Chapter 15.58: Special Events on Private Property",
+      "code_title": "Title 15: Zoning Ordinance",
+      "source": "Fullerton Municipal Code",
+      "retrieved_by": "user (manual download from codelibrary.amlegal.com)",
+      "retrieved_date": "2026-08-14",
+      "notes": "Functions as Fullerton's private-property TUP-equivalent chapter. Fee amounts NOT included in ordinance text - set by separate City Council resolution."
+    },
+    {
+      "file": "chapter-8.71-special-events-public-property.pdf",
+      "title": "Chapter 8.71: Special Events on Public Streets and Public Facilities",
+      "code_title": "Title 8",
+      "source": "Fullerton Municipal Code",
+      "retrieved_by": "user (manual download from codelibrary.amlegal.com)",
+      "retrieved_date": "2026-08-14",
+      "notes": "Parallel track to 15.58 for events on public property/streets. Cross-referenced by 15.58.030(C). Fee amounts NOT included - set by City Council resolution."
+    },
+    {
+      "file": "chapter-15.70-conditional-use-permits.pdf",
+      "title": "Chapter 15.70: Conditional Use Permits",
+      "code_title": "Title 15: Zoning Ordinance",
+      "source": "Fullerton Municipal Code",
+      "retrieved_by": "user (manual download from codelibrary.amlegal.com)",
+      "retrieved_date": "2026-08-14",
+      "notes": "Relevant to test question on CUP amendments for venues exceeding approved event counts. Fee amounts NOT included - set by City Council resolution."
+    }
+  ],
+  "still_needed": [
+    {
+      "what": "Master fee schedule / fee resolution with dollar amounts for: Special Event Permit (private property, 15.58.040), Special Event Permit (public property, 8.71.040), CUP application fee (15.70.020)",
+      "likely_source": "City of Fullerton Planning & Zoning 'Applications & Fees' page (Application List & Fees PDF, reportedly effective 2025-07-15); Public Works may hold a separate fee resolution for the 8.71 public-property permit"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "_comment": "Structured extraction of the fee table on special-event-permit-application-with-fees.pdf, p.1. Mirrors the shape of the fee_schedules table in the project's data model. All amounts effective as of the form's last-updated marker (2026-03-10) unless a fee resolution says otherwise.",
+  "city": "Fullerton",
+  "permit_type": "Special Event Permit",
+  "effective_date": "2026-03-10",
+  "effective_date_confidence": "inferred_from_form_footer",
+  "source_file": "special-event-permit-application-with-fees.pdf",
+  "fee_rows": [
+    {
+      "fee_name": "Community Development Permit Issuance Fee",
+      "amount_usd": 100,
+      "amount_type": "flat",
+      "applies_to_track": "private_property",
+      "code_section": "FMC 15.58.040",
+      "account_code": "10345-4614 (3221)"
+    },
+    {
+      "fee_name": "Public Works Engineering Permit Issuance Fee",
+      "amount_usd_range": [1000, 2000],
+      "amount_type": "tiered_flat",
+      "applies_to_track": "public_property",
+      "code_section": "FMC 8.71.040",
+      "account_code": "10322-4260 (E2020E/E2020D)",
+      "notes": "Two-tier amount ($1,000 or $2,000) - tier-determining criteria not stated on the form itself; needs a follow-up source (fee resolution) to know which events fall in which tier."
+    },
+    {
+      "fee_name": "Public Works Engineering Inspection and Plan Check Fee",
+      "amount_usd": 161,
+      "amount_type": "flat",
+      "applies_to_track": "public_property",
+      "code_section": "FMC 8.71.040",
+      "account_code": "10322-4614 (E2030A)"
+    },
+    {
+      "fee_name": "Joint Inspection from Fire Dept. & Building Dept. (business hours)",
+      "amount_usd": 300,
+      "amount_type": "flat",
+      "applies_to_track": "both",
+      "account_code": "50% to 10345-4220 (3210); 50% to 10251-4640 (7037)"
+    },
+    {
+      "fee_name": "Joint Inspection from Fire Dept. & Building Dept. (after-hours/weekends)",
+      "amount_usd": 450,
+      "amount_type": "flat",
+      "applies_to_track": "both"
+    },
+    {
+      "fee_name": "Police Department Staffing",
+      "amount_usd": null,
+      "amount_type": "hourly_billed_after_event",
+      "applies_to_track": "both",
+      "account_code": "10277-4730 (7253)",
+      "notes": "Only charged if police officers are determined necessary per FMC 8.71.050(A)(10). No flat rate given on this form - needs the PD fee schedule for an hourly rate."
+    },
+    {
+      "fee_name": "Refundable Deposit",
+      "amount_usd_range": [1000, 2000],
+      "amount_type": "refundable_deposit",
+      "applies_to_track": "public_property",
+      "account_code": "10-2420 (2000)",
+      "notes": "Not required for block parties."
+    }
+  ],
+  "known_gaps": [
+    "Chapter 15.70 (Conditional Use Permit) application fee amount - ordinance only says 'as prescribed by resolution of the City Council', no dollar figure found in any source collected so far.",
+    "Criteria distinguishing the $1,000 vs $2,000 Public Works Engineering Permit Issuance Fee tiers.",
+    "Police staffing hourly rate."
+  ]
+}
