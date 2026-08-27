@@ -25,6 +25,7 @@ const OUT_OF_SCOPE_PATTERNS: [RegExp, string][] = [
 ];
 
 interface Hit {
+  id: string;
   document_id: string;
   section_reference: string;
   content: string;
@@ -36,7 +37,7 @@ async function embed(text: string): Promise<number[]> {
   return out as number[];
 }
 
-async function hybridSearch(queryText: string, queryEmbedding: number[], matchCount = 6): Promise<Hit[]> {
+async function hybridSearch(queryText: string, queryEmbedding: number[], matchCount = 15): Promise<Hit[]> {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/hybrid_search`, {
     method: "POST",
     headers: {
@@ -75,6 +76,103 @@ function checkOutOfScope(question: string): string | null {
   return null;
 }
 
+interface HitWithTitle extends Hit {
+  document_title: string;
+}
+
+interface RerankResult {
+  included: HitWithTitle[];
+  retrievalSufficient: boolean;
+  suggestedRequery: string | null;
+}
+
+// Reranking + agentic-retrieval-decision in one Gemini call: scores each
+// candidate for actual relevance to the question (not just RRF/embedding
+// rank), and - since the model already has to judge whether the candidates
+// answer the question at all - asks it to propose a better search query when
+// they don't. This is what promotes a correct-but-buried chunk (reranking)
+// and, separately, catches the case where the right chunk was never
+// retrieved for this phrasing at all (agentic requery).
+async function rerankAndPlan(
+  question: string,
+  hits: HitWithTitle[],
+  allowRequery: boolean
+): Promise<RerankResult> {
+  const candidates = hits
+    .map((h, i) => `[${i}] ${h.document_title} - ${h.section_reference} (similarity ${h.similarity.toFixed(2)})\n${h.content}`)
+    .join("\n\n");
+
+  const requeryInstruction = allowRequery
+    ? `- "retrieval_sufficient": true if the candidates collectively contain enough genuine, on-topic facts to build a real answer - even a partial one that combines several citations, or one that honestly notes a gap for only part of a multi-part question. Set this false if the candidates are clearly off-topic or the wrong jurisdiction, OR if they are the wrong KIND of information for what's actually being asked - e.g. the question asks what permit/process/approval is required but the candidates only show fee amounts, venue directory listings, or other adjacent-but-non-responsive material with no actual permit/process content; or the question asks about cost but the candidates only describe a process. Do not set this false merely because the answer would be incomplete in degree (missing one sub-part of several) - only when it's the wrong kind of material entirely.
+- "suggested_requery": if retrieval_sufficient is false, propose ONE alternative search query (different phrasing, synonyms, or more specific terms) that would more likely retrieve the right material from a permit/fee/venue-pricing knowledge base. Otherwise null.`
+    : `- Set "retrieval_sufficient" to true and "suggested_requery" to null always (a second search has already been attempted for this question).`;
+
+  const prompt = `You are judging search results for a knowledge base about event activation permits, fees, and venues in Fullerton, California.
+
+Question: ${question}
+
+Candidate passages (indexed):
+${candidates}
+
+For each candidate, judge whether it is actually relevant to directly answering the question - not just topically adjacent (e.g. a different city's fee, a different permit type, or a venue *listing* when the question asks about *permits* are NOT relevant even if they mention similar words).
+
+Return:
+- "scores": an array with one entry per candidate index, each {"index": number, "relevance_score": number between 0 and 1, "include": boolean (true only if genuinely relevant enough to help answer the question)}.
+${requeryInstruction}`;
+
+  const res = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": GEMINI_API_KEY },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: {
+          temperature: 0,
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: "object",
+            properties: {
+              scores: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    index: { type: "integer" },
+                    relevance_score: { type: "number" },
+                    include: { type: "boolean" },
+                  },
+                  required: ["index", "relevance_score", "include"],
+                },
+              },
+              retrieval_sufficient: { type: "boolean" },
+              suggested_requery: { type: "string", nullable: true },
+            },
+            required: ["scores", "retrieval_sufficient"],
+          },
+        },
+      }),
+    }
+  );
+  if (!res.ok) throw new Error(`Gemini rerank error: ${res.status} ${await res.text()}`);
+  const data = await res.json();
+  const raw = data.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!raw) return { included: hits.slice(0, 6), retrievalSufficient: true, suggestedRequery: null };
+  const parsed = JSON.parse(raw);
+
+  const scored = (parsed.scores as { index: number; relevance_score: number; include: boolean }[])
+    .filter((s) => s.include && hits[s.index])
+    .sort((a, b) => b.relevance_score - a.relevance_score)
+    .slice(0, 6)
+    .map((s) => hits[s.index]);
+
+  return {
+    included: scored,
+    retrievalSufficient: Boolean(parsed.retrieval_sufficient),
+    suggestedRequery: parsed.suggested_requery ?? null,
+  };
+}
+
 async function generateAnswer(question: string, hits: (Hit & { document_title: string })[]): Promise<{ answer: string; refused: boolean }> {
   const context = hits
     .map((h, i) => `[${i + 1}] Source: ${h.document_title} - ${h.section_reference} (similarity ${h.similarity.toFixed(2)})\n${h.content}`)
@@ -103,7 +201,7 @@ ${context}`;
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
-          temperature: 0.1,
+          temperature: 0,
           responseMimeType: "application/json",
           responseSchema: {
             type: "object",
@@ -150,16 +248,40 @@ Deno.serve(async (req: Request) => {
     const embedding = await embed(question);
     const hits = await hybridSearch(question, embedding);
     const titles = await fetchDocumentTitles(hits.map((h) => h.document_id));
-    const hitsWithTitles = hits.map((h) => ({ ...h, document_title: titles[h.document_id] ?? "Unknown source" }));
+    let hitsWithTitles: HitWithTitle[] = hits.map((h) => ({ ...h, document_title: titles[h.document_id] ?? "Unknown source" }));
 
-    const { answer, refused } = await generateAnswer(question, hitsWithTitles);
+    let { included, retrievalSufficient, suggestedRequery } = await rerankAndPlan(question, hitsWithTitles, true);
+    let retrievalHops = 1;
+    let requeryUsed: string | null = null;
+
+    if (!retrievalSufficient && suggestedRequery) {
+      const requeryEmbedding = await embed(suggestedRequery);
+      const requeryHits = await hybridSearch(suggestedRequery, requeryEmbedding);
+      const requeryTitles = await fetchDocumentTitles(requeryHits.map((h) => h.document_id));
+      const requeryHitsWithTitles: HitWithTitle[] = requeryHits.map((h) => ({
+        ...h,
+        document_title: requeryTitles[h.document_id] ?? "Unknown source",
+      }));
+
+      const seen = new Set(hitsWithTitles.map((h) => h.id));
+      const merged = [...hitsWithTitles, ...requeryHitsWithTitles.filter((h) => !seen.has(h.id))];
+
+      const second = await rerankAndPlan(question, merged, false);
+      included = second.included;
+      retrievalHops = 2;
+      requeryUsed = suggestedRequery;
+    }
+
+    const { answer, refused } = await generateAnswer(question, included);
 
     return new Response(
       JSON.stringify({
         answer,
         refused,
         out_of_scope: false,
-        citations: hitsWithTitles.map((h) => ({
+        retrieval_hops: retrievalHops,
+        requery: requeryUsed,
+        citations: included.map((h) => ({
           title: h.document_title,
           section_reference: h.section_reference,
           similarity: h.similarity,

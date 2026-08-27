@@ -115,6 +115,15 @@
   .answer-badge.answered { color: var(--answer-border); }
   details { font-size: 0.8rem; color: var(--muted); }
   details summary { cursor: pointer; }
+  .requery-note {
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+  }
   .citation-row { padding: 6px 0; border-top: 1px solid var(--border); }
   .citation-row:first-of-type { border-top: none; margin-top: 8px; }
   .citation-title { font-weight: 600; }
@@ -209,6 +218,10 @@
         const badgeClass = data.refused || data.out_of_scope ? "refused" : "answered";
         const badgeText = data.out_of_scope ? "Declined — out of scope" : data.refused ? "Not in knowledge base" : "Answered from sources";
 
+        const requeryHtml = data.retrieval_hops === 2 && data.requery
+          ? `<div class="requery-note">🔎 First search wasn't a strong enough match, so the system automatically refined it and searched again: "${escapeHtml(data.requery)}"</div>`
+          : "";
+
         const citationsHtml = (data.citations || []).length
           ? `<details>
               <summary>${data.citations.length} source${data.citations.length === 1 ? "" : "s"} considered</summary>
@@ -227,6 +240,7 @@
         turnEl.querySelector(".answer-card").outerHTML = `
           <div class="answer-card ${cardClass}">
             <span class="answer-badge ${badgeClass}">${badgeText}</span>
+            ${requeryHtml}
             <div class="answer-text">${escapeHtml(data.answer)}</div>
             ${citationsHtml}
           </div>
