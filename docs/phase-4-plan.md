@@ -110,13 +110,21 @@ preference for not retrofitting abstractions onto working code.
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
 
-## What's still open for Anaheim
+## Anaheim: complete
 
-- Municipal code (special event permit / temporary use requirements) -
-  blocked on `amlegal.com`, needs the manual-retrieval fallback.
-- A small Anaheim-specific evaluation pass (not the full 13-question set,
-  which is Fullerton-specific) checking both "Anaheim questions get Anaheim
-  answers" and "a Fullerton question still only returns Fullerton content."
+All four planned sources are ingested: the fee schedule, the municipal code
+(§18.38.230 Special Events - Outdoor Activity, §18.38.135 Festival Permit,
+§18.118.080 Permitted Temporary Uses - manually retrieved by the user and
+supplied as a saved PDF, since `amlegal.com` confirmed-blocked automated
+fetches the same way it blocked Fullerton's in Phase 1), Google Places
+venues/gyms, and market-rate venue pricing. Verified end-to-end: a gym
+pop-up question correctly cites §18.38.230 (not the large-events-only
+Festival Permit), and a duration/frequency question correctly returns the
+real 9-day/4-per-year limits.
+
+**Still open:** a small Anaheim-specific evaluation pass (not the full
+13-question Fullerton set) checking both "Anaheim questions get Anaheim
+answers" and "a Fullerton question still only returns Fullerton content."
 
 ## What's still open for Phase 4 overall
 
