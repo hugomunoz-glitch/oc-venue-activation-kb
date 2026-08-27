@@ -17,8 +17,8 @@ Villa Park, a small residential enclave with little activation-venue
 activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
-**Status: Fullerton (Phase 1-3), Anaheim, Brea, and La Habra are ingested.
-The other five (Santa Ana, Tustin, Buena Park, Stanton, Orange) are planned,
+**Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, and Santa Ana are
+ingested. The other four (Tustin, Buena Park, Stanton, Orange) are planned,
 not started.**
 
 ## Architecture decisions (apply once, benefit every future city)
@@ -110,6 +110,17 @@ preference for not retrofitting abstractions onto working code.
 7. **Verify, don't just ingest.** Query `hybrid_search` scoped to the new
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
+
+## Santa Ana: complete
+
+Confirms the code-hosting-platform block is universal so far (amlegal.com,
+ecode360.com, and now municode.com all 403 automated fetches) - worth
+assuming for every remaining city rather than re-testing the assumption
+each time, though still worth a quick direct check before committing to the
+manual-retrieval fallback. New honest-gap case: Santa Ana's own Event Permit
+Application leaves its fee section blank, determined per-application by
+city staff - a third-party site's "$120-$2400" estimate was deliberately
+not used as if it were an official number.
 
 ## La Habra: complete
 
