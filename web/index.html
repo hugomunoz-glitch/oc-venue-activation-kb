@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OC Venue Activation KB — Phase 3 (Fullerton)</title>
+<title>OC Venue Activation KB — Phase 4 (Fullerton, Anaheim)</title>
 <style>
   :root {
     color-scheme: light dark;
@@ -132,17 +132,19 @@
 </head>
 <body>
   <h1>OC Venue Activation Knowledge Base</h1>
-  <div class="subtitle">Phase 3 — grounded, cited chat answers (Fullerton)</div>
+  <div class="subtitle">Phase 4 — grounded, cited chat answers (Fullerton, Anaheim)</div>
   <nav>
     <a href="search.html">Raw retrieval view (Phase 1–2) &rarr;</a>
     <a href="sources.html">All ingested sources &rarr;</a>
   </nav>
 
   <div class="scope-note">
-    Ask a real question about hosting an activation (wedding reception, fitness pop-up, etc.) in Fullerton.
-    Every answer is synthesized only from cited passages in this knowledge base — no outside knowledge, no
-    invented numbers. It will tell you honestly when the data isn't here, and it declines investment/purchase
-    advice and revenue forecasts on purpose (out of scope by design, not a bug).
+    Ask a real question about hosting an activation (wedding reception, fitness pop-up, etc.) in Fullerton
+    or Anaheim — name the city in your question (e.g. "in Anaheim") so the answer is scoped correctly; each
+    city's permits and fees are tracked separately on purpose. Every answer is synthesized only from cited
+    passages in this knowledge base — no outside knowledge, no invented numbers. It will tell you honestly
+    when the data isn't here, and it declines investment/purchase advice and revenue forecasts on purpose
+    (out of scope by design, not a bug).
   </div>
 
   <form id="chat-form">
@@ -153,7 +155,8 @@
   <div class="examples">
     Try:
     <button type="button" class="example">What is the typical added cost of alcohol service at a one-day activation in Fullerton?</button>
-    <button type="button" class="example">How many special-event filings can a venue submit per year before needing a CUP?</button>
+    <button type="button" class="example">What is the fee for an Outdoor Activity special event permit in Anaheim?</button>
+    <button type="button" class="example">How many special-event filings can a venue submit per year before needing a CUP in Fullerton?</button>
     <button type="button" class="example">Should I buy a property in Fullerton to open a wedding venue?</button>
   </div>
 
@@ -214,9 +217,15 @@
         const data = await askQuestion(q);
         statusEl.textContent = "";
 
-        const cardClass = data.out_of_scope ? "out-of-scope" : data.refused ? "refused" : "";
-        const badgeClass = data.refused || data.out_of_scope ? "refused" : "answered";
-        const badgeText = data.out_of_scope ? "Declined — out of scope" : data.refused ? "Not in knowledge base" : "Answered from sources";
+        const cardClass = data.out_of_scope || data.needs_city ? "out-of-scope" : data.refused ? "refused" : "";
+        const badgeClass = data.refused || data.out_of_scope || data.needs_city ? "refused" : "answered";
+        const badgeText = data.needs_city
+          ? "Which city?"
+          : data.out_of_scope
+          ? "Declined — out of scope"
+          : data.refused
+          ? "Not in knowledge base"
+          : `Answered from sources — ${data.city}`;
 
         const requeryHtml = data.retrieval_hops === 2 && data.requery
           ? `<div class="requery-note">🔎 First search wasn't a strong enough match, so the system automatically refined it and searched again: "${escapeHtml(data.requery)}"</div>`

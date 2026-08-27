@@ -37,7 +37,12 @@ async function embed(text: string): Promise<number[]> {
   return out as number[];
 }
 
-async function hybridSearch(queryText: string, queryEmbedding: number[], matchCount = 15): Promise<Hit[]> {
+async function hybridSearch(
+  queryText: string,
+  queryEmbedding: number[],
+  cityId: string,
+  matchCount = 15
+): Promise<Hit[]> {
   const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/hybrid_search`, {
     method: "POST",
     headers: {
@@ -48,11 +53,37 @@ async function hybridSearch(queryText: string, queryEmbedding: number[], matchCo
     body: JSON.stringify({
       query_text: queryText,
       query_embedding: JSON.stringify(queryEmbedding),
+      match_city_id: cityId,
       match_count: matchCount,
     }),
   });
   if (!res.ok) throw new Error(`hybrid_search failed: ${res.status} ${await res.text()}`);
   return res.json();
+}
+
+interface City {
+  id: string;
+  name: string;
+}
+
+async function fetchCities(): Promise<City[]> {
+  const res = await fetch(`${SUPABASE_URL}/rest/v1/cities?select=id,name`, {
+    headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+  });
+  if (!res.ok) throw new Error(`cities fetch failed: ${res.status}`);
+  return res.json();
+}
+
+// City auto-detection: a plain keyword match against the question text,
+// deliberately not an LLM call - city names are explicit, distinctive
+// tokens, so this is free, instant, and just as reliable as the reranker
+// already assumes a clean retrieval input is. Zero or multiple matches are
+// both treated as "ask, don't guess" - silently defaulting to one city, or
+// searching unscoped across all of them, is exactly the cross-city
+// contamination the city_id filter exists to prevent.
+function detectCity(question: string, cities: City[]): City[] {
+  const lower = question.toLowerCase();
+  return cities.filter((c) => lower.includes(c.name.toLowerCase()));
 }
 
 async function fetchDocumentTitles(docIds: string[]): Promise<Record<string, string>> {
@@ -95,6 +126,7 @@ interface RerankResult {
 // retrieved for this phrasing at all (agentic requery).
 async function rerankAndPlan(
   question: string,
+  cityName: string,
   hits: HitWithTitle[],
   allowRequery: boolean
 ): Promise<RerankResult> {
@@ -107,7 +139,7 @@ async function rerankAndPlan(
 - "suggested_requery": if retrieval_sufficient is false, propose ONE alternative search query (different phrasing, synonyms, or more specific terms) that would more likely retrieve the right material from a permit/fee/venue-pricing knowledge base. Otherwise null.`
     : `- Set "retrieval_sufficient" to true and "suggested_requery" to null always (a second search has already been attempted for this question).`;
 
-  const prompt = `You are judging search results for a knowledge base about event activation permits, fees, and venues in Fullerton, California.
+  const prompt = `You are judging search results for a knowledge base about event activation permits, fees, and venues in ${cityName}, California.
 
 Question: ${question}
 
@@ -173,12 +205,12 @@ ${requeryInstruction}`;
   };
 }
 
-async function generateAnswer(question: string, hits: (Hit & { document_title: string })[]): Promise<{ answer: string; refused: boolean }> {
+async function generateAnswer(question: string, cityName: string, hits: (Hit & { document_title: string })[]): Promise<{ answer: string; refused: boolean }> {
   const context = hits
     .map((h, i) => `[${i + 1}] Source: ${h.document_title} - ${h.section_reference} (similarity ${h.similarity.toFixed(2)})\n${h.content}`)
     .join("\n\n");
 
-  const prompt = `You are answering questions for a knowledge base about event activation permits, fees, and venues in Fullerton, California. You are given retrieved passages below. Follow these rules strictly:
+  const prompt = `You are answering questions for a knowledge base about event activation permits, fees, and venues in ${cityName}, California. You are given retrieved passages below. Follow these rules strictly:
 
 1. Answer ONLY using the passages provided below. Never use outside knowledge.
 2. Cite every factual claim with its passage number, like [1] or [2].
@@ -245,18 +277,50 @@ Deno.serve(async (req: Request) => {
       );
     }
 
+    const cities = await fetchCities();
+    const matchedCities = detectCity(question, cities);
+
+    if (matchedCities.length === 0) {
+      const cityList = cities.map((c) => c.name).join(", ");
+      return new Response(
+        JSON.stringify({
+          answer: `Which city is this about? This knowledge base currently covers: ${cityList}. Naming the city in your question (e.g. "in Anaheim") gets you a properly scoped answer.`,
+          refused: true,
+          out_of_scope: false,
+          needs_city: true,
+          citations: [],
+        }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    if (matchedCities.length > 1) {
+      const names = matchedCities.map((c) => c.name).join(" and ");
+      return new Response(
+        JSON.stringify({
+          answer: `This question mentions more than one city (${names}). Please ask about one city at a time - each city's permits and fees are tracked separately, and combining them risks mixing up which rule applies where.`,
+          refused: true,
+          out_of_scope: false,
+          needs_city: true,
+          citations: [],
+        }),
+        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
+    const city = matchedCities[0];
+
     const embedding = await embed(question);
-    const hits = await hybridSearch(question, embedding);
+    const hits = await hybridSearch(question, embedding, city.id);
     const titles = await fetchDocumentTitles(hits.map((h) => h.document_id));
     let hitsWithTitles: HitWithTitle[] = hits.map((h) => ({ ...h, document_title: titles[h.document_id] ?? "Unknown source" }));
 
-    let { included, retrievalSufficient, suggestedRequery } = await rerankAndPlan(question, hitsWithTitles, true);
+    let { included, retrievalSufficient, suggestedRequery } = await rerankAndPlan(question, city.name, hitsWithTitles, true);
     let retrievalHops = 1;
     let requeryUsed: string | null = null;
 
     if (!retrievalSufficient && suggestedRequery) {
       const requeryEmbedding = await embed(suggestedRequery);
-      const requeryHits = await hybridSearch(suggestedRequery, requeryEmbedding);
+      const requeryHits = await hybridSearch(suggestedRequery, requeryEmbedding, city.id);
       const requeryTitles = await fetchDocumentTitles(requeryHits.map((h) => h.document_id));
       const requeryHitsWithTitles: HitWithTitle[] = requeryHits.map((h) => ({
         ...h,
@@ -266,19 +330,20 @@ Deno.serve(async (req: Request) => {
       const seen = new Set(hitsWithTitles.map((h) => h.id));
       const merged = [...hitsWithTitles, ...requeryHitsWithTitles.filter((h) => !seen.has(h.id))];
 
-      const second = await rerankAndPlan(question, merged, false);
+      const second = await rerankAndPlan(question, city.name, merged, false);
       included = second.included;
       retrievalHops = 2;
       requeryUsed = suggestedRequery;
     }
 
-    const { answer, refused } = await generateAnswer(question, included);
+    const { answer, refused } = await generateAnswer(question, city.name, included);
 
     return new Response(
       JSON.stringify({
         answer,
         refused,
         out_of_scope: false,
+        city: city.name,
         retrieval_hops: retrievalHops,
         requery: requeryUsed,
         citations: included.map((h) => ({
