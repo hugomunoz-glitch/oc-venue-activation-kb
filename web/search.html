@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OC Venue Activation KB — Phase 1 (Fullerton)</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666666;
+    --border: #dddddd;
+    --accent: #7a3b2e;
+    --card-bg: #f7f5f3;
+    --code-bg: #eeeeee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15130f;
+      --fg: #ece8e2;
+      --muted: #a39d92;
+      --border: #3a352d;
+      --accent: #d99b7d;
+      --card-bg: #201d18;
+      --code-bg: #2a251e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+    line-height: 1.5;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+  .scope-note {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  form { display: flex; gap: 8px; margin-bottom: 8px; }
+  input[type="text"] {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 1rem;
+  }
+  button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  button:disabled { opacity: 0.5; cursor: default; }
+  .examples { font-size: 0.8rem; color: var(--muted); margin-bottom: 24px; }
+  .examples button {
+    background: none;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    margin: 4px 6px 0 0;
+    border-radius: 999px;
+  }
+  #status { font-size: 0.85rem; color: var(--muted); min-height: 1.2em; margin-bottom: 12px; }
+  .result {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: var(--card-bg);
+  }
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .citation { font-weight: 600; font-size: 0.95rem; }
+  .score { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+  .source-name { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+  .content { font-size: 0.9rem; white-space: pre-wrap; }
+  code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; font-size: 0.85em; }
+  .empty { color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+  <h1>Raw Retrieval View</h1>
+  <div class="subtitle">Phase 1–2 hybrid search, no synthesis — kept for comparison against the Phase 3 chat answers</div>
+  <nav style="margin-bottom: 16px; font-size: 0.9rem;">
+    <a href="index.html" style="color: var(--accent); margin-right: 16px;">&larr; Back to chat</a>
+    <a href="sources.html" style="color: var(--accent);">View all ingested sources &rarr;</a>
+  </nav>
+
+  <div class="scope-note">
+    This is the bare hybrid-search view from Phase 1–2: it returns the top matching chunks with citations, but
+    does not synthesize an answer or refuse out-of-scope questions - see the <a href="index.html" style="color: var(--accent);">chat interface</a>
+    for that. Kept here so the Phase 3 baseline evaluation's before/after comparison stays demonstrable.
+  </div>
+
+  <form id="search-form">
+    <input type="text" id="query" placeholder="e.g. What permits does a gym need for a one-day fitness pop-up?" autocomplete="off" />
+    <button type="submit" id="submit-btn">Search</button>
+  </form>
+
+  <div class="examples">
+    Try:
+    <button type="button" class="example">What permits does a Fullerton wedding venue need to host extra events beyond its approved count?</button>
+    <button type="button" class="example">How much does a special event permit cost on private property?</button>
+    <button type="button" class="example">Does alcohol service at a special event need a separate license?</button>
+  </div>
+
+  <div id="status"></div>
+  <div id="results"></div>
+
+  <script>
+    const SUPABASE_URL = "https://mcjkyxmbmetzhyrcklsi.supabase.co";
+    const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1jamt5eG1ibWV0emh5cmNrbHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY3MzIwNzcsImV4cCI6MjEwMjMwODA3N30.2cXyDpP5J1wp9lUDmOV3B_KlKkWv0av3FyPzCO4Rawg";
+
+    const form = document.getElementById("search-form");
+    const input = document.getElementById("query");
+    const statusEl = document.getElementById("status");
+    const resultsEl = document.getElementById("results");
+    const submitBtn = document.getElementById("submit-btn");
+
+    document.querySelectorAll(".example").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        input.value = btn.textContent;
+        form.requestSubmit();
+      });
+    });
+
+    async function embed(text) {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/embed`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input: text }),
+      });
+      if (!res.ok) throw new Error(`embed failed: ${res.status}`);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      return data.embedding;
+    }
+
+    async function hybridSearch(queryText, queryEmbedding) {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/rpc/hybrid_search`, {
+        method: "POST",
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          query_text: queryText,
+          query_embedding: JSON.stringify(queryEmbedding),
+          match_count: 6,
+        }),
+      });
+      if (!res.ok) throw new Error(`search failed: ${res.status} ${await res.text()}`);
+      return res.json();
+    }
+
+    async function fetchDocuments(documentIds) {
+      const ids = [...new Set(documentIds)];
+      const res = await fetch(
+        `${SUPABASE_URL}/rest/v1/documents?id=in.(${ids.join(",")})&select=id,title,source_name,code_chapter`,
+        {
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+        }
+      );
+      if (!res.ok) throw new Error(`documents fetch failed: ${res.status}`);
+      const rows = await res.json();
+      const map = {};
+      rows.forEach((r) => (map[r.id] = r));
+      return map;
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement("div");
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const q = input.value.trim();
+      if (!q) return;
+
+      submitBtn.disabled = true;
+      resultsEl.innerHTML = "";
+      statusEl.textContent = "Embedding question and searching…";
+
+      try {
+        const embedding = await embed(q);
+        const hits = await hybridSearch(q, embedding);
+
+        if (!hits.length) {
+          statusEl.textContent = "";
+          resultsEl.innerHTML = `<div class="empty">No results — this knowledge base only covers Fullerton special event permits, CUPs, and related fees so far. If your question is outside that scope, this KB honestly doesn't have the answer yet.</div>`;
+          return;
+        }
+
+        const docs = await fetchDocuments(hits.map((h) => h.document_id));
+        statusEl.textContent = `${hits.length} result${hits.length === 1 ? "" : "s"}, ranked by hybrid (keyword + semantic) search:`;
+
+        resultsEl.innerHTML = hits
+          .map((hit) => {
+            const doc = docs[hit.document_id] || {};
+            return `
+              <div class="result">
+                <div class="result-header">
+                  <span class="citation">${escapeHtml(hit.section_reference || "")}</span>
+                  <span class="score">similarity ${(hit.similarity * 100).toFixed(1)}%</span>
+                </div>
+                <div class="source-name">${escapeHtml(doc.title || doc.source_name || "Unknown source")}</div>
+                <div class="content">${escapeHtml(hit.content)}</div>
+              </div>
+            `;
+          })
+          .join("");
+      } catch (err) {
+        statusEl.textContent = "";
+        resultsEl.innerHTML = `<div class="empty">Error: ${escapeHtml(err.message)}</div>`;
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
