@@ -17,8 +17,8 @@ Villa Park, a small residential enclave with little activation-venue
 activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
-**Status: Fullerton (Phase 1-3), Anaheim, and Brea are ingested. The other
-six (La Habra, Santa Ana, Tustin, Buena Park, Stanton, Orange) are planned,
+**Status: Fullerton (Phase 1-3), Anaheim, Brea, and La Habra are ingested.
+The other five (Santa Ana, Tustin, Buena Park, Stanton, Orange) are planned,
 not started.**
 
 ## Architecture decisions (apply once, benefit every future city)
@@ -110,6 +110,17 @@ preference for not retrofitting abstractions onto working code.
 7. **Verify, don't just ingest.** Query `hybrid_search` scoped to the new
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
+
+## La Habra: complete
+
+Same recipe, same pattern: the actual code chapter (ecode360.com) is
+confirmed-blocked, but the city's own current Special Event Permit
+application and Master Schedule of Fees were rich, real, directly-fetchable
+primary sources. This round's real finding: a search-engine summary quoted
+a $5,385 CUP fee that turned out to be wrong — the actual fee schedule PDF
+(read directly via `pdftotext`, not a secondhand summary) states $6,759.
+Worth remembering for every remaining city: verify fee figures against the
+primary document itself, not a search engine's paraphrase of it.
 
 ## Brea: complete
 
