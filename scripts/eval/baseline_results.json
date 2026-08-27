@@ -1,0 +1,470 @@
+[
+  {
+    "n": 1,
+    "question": "Does a Fullerton wedding venue need a Conditional Use Permit (CUP) amendment to host more than its currently-approved number of events per year, or does a Temporary Use Permit (TUP) cover extra one-off events?",
+    "hits": [
+      {
+        "document_title": "Chapter 15.70: Conditional Use Permits",
+        "section_reference": "\u00a715.70.010",
+        "similarity": 0.888,
+        "content": "INTENT AND PURPOSE. The Planning Commission may grant a conditional use permit (CUP) for matters this title requires to be reviewed, but only if findings under \u00a715.70.040(D) can be made. Purpose: ensure compatibility between the proposed use and other existing/potential uses in the area, and account for variations in noise, smoke, dust, fumes, vibration, odors and hazards. (Ord. 2982, passed 2001; Ord. 3026, passed 2003; Ord. 3232, passed 2016)"
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.881,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.87,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      },
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Who Applies",
+        "similarity": 0.869,
+        "content": "Form ABC-218 (Catering Authorization Application) is filed by an existing ABC licensee (e.g. a caterer holding a Type 58 Caterer's Permit, a Type 91 Beer Manufacturer's Caterer's Permit, a Type 77 Event Permit, or a Type 93 Estate Tasting Event Permit) to extend their existing license to a specific off-site event - it is not something a venue with no existing ABC license applies for directly. A private wedding venue or gym without its own liquor license would need to hire such a licensed caterer to serve alcohol at an activation, rather than obtaining a license itself."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Permit Issuance Fee",
+        "similarity": 0.867,
+        "content": "Public Works Engineering Permit Issuance Fee: $1,000 or $2,000 (two-tier flat fee - the form doesn't state the criteria distinguishing which events fall in which tier). Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4260 (E2020E/E2020D)."
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "question": "What permits does a gym in Fullerton need to host a one-day fitness pop-up in partnership with an outside brand?",
+    "hits": [
+      {
+        "document_title": "Uzima Fitness Fullerton Personal Training",
+        "section_reference": "Uzima Fitness Fullerton Personal Training",
+        "similarity": 0.873,
+        "content": "Uzima Fitness Fullerton Personal Training is located at 3030 N Brea Blvd, Fullerton, CA 92835, USA. Google Places categories: gym, fitness_center, sports_complex, sports_school, sports_coaching, consultant, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 5/5 (99 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Brick & Barbell - Personal Training, Group Fitness, Strength Training",
+        "section_reference": "Brick & Barbell - Personal Training, Group Fitness, Strength Training",
+        "similarity": 0.869,
+        "content": "Brick & Barbell - Personal Training, Group Fitness, Strength Training is located at 1027 N Harbor Blvd A, Fullerton, CA 92832, USA. Google Places categories: fitness_center, gym, sports_complex, sports_club, association_or_organization, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 5/5 (47 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "24 Hour Fitness",
+        "section_reference": "24 Hour Fitness",
+        "similarity": 0.868,
+        "content": "24 Hour Fitness is located at 130 E Imperial Hwy, Fullerton, CA 92835, USA. Google Places categories: gym, yoga_studio, fitness_center, sports_complex, sports_school, sauna, spa, public_bath, swimming_pool, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 4.5/5 (764 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Faster Fitness",
+        "section_reference": "Faster Fitness",
+        "similarity": 0.866,
+        "content": "Faster Fitness is located at 3030 N Brea Blvd, Fullerton, CA 92835, USA. Google Places categories: gym, fitness_center, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 4.9/5 (31 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Planet Fitness",
+        "section_reference": "Planet Fitness",
+        "similarity": 0.865,
+        "content": "Planet Fitness is located at 104 N Raymond Ave, Fullerton, CA 92831, USA. Google Places categories: gym, tanning_studio, fitness_center, spa, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 4.4/5 (527 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      }
+    ]
+  },
+  {
+    "n": 3,
+    "question": "Is a backyard/outdoor wedding reception activation in Fullerton covered by a Special Event Permit, a TUP, or neither, depending on guest count?",
+    "hits": [
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.884,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.883,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      },
+      {
+        "document_title": "Chapter 15.58: Special Events on Private Property",
+        "section_reference": "\u00a715.58.030",
+        "similarity": 0.875,
+        "content": "PERMIT REQUIRED. (A) A special event shall be prohibited on private property unless a properly issued special event permit is first issued to the applicant. An application for a special event on private property shall be filed with the Community and Economic Development Department. (B) An application for a special event in a public park shall be filed with the Director of Parks and Recreation in accordance with Chapter 9.12 of this code. (C) An application for a special event using a public street and/or a public facility shall be filed with the Director of Public Works in accordance with Chapter 8.71 of this code. (Ord. 2982, passed 2001; Ord. 3232, passed 2016)"
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Inspection and Plan Check Fee",
+        "similarity": 0.873,
+        "content": "Public Works Engineering Inspection and Plan Check Fee: $161 flat fee. Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4614 (E2030A)."
+      },
+      {
+        "document_title": "Chapter 8.71: Special Events on Public Streets and Public Facilities",
+        "section_reference": "\u00a78.71.030",
+        "similarity": 0.872,
+        "content": "PERMIT REQUIRED. (A) A special event on a public street/facility requires a permit filed with the Director of Public Works. (B) A special event in a city park/open space area is filed with the Director of Parks and Recreation under Chapter 9.12. (C) A special event on private property is filed with the Director of Development Services under Chapter 15.58. (D) No permit is required for events the city/Redevelopment Agency co-sponsors, subject to findings: the organization is IRS-recognized nonprofit; a majority of its members/officers are city residents (waivable for other local-government co-sponsors); the organization agrees to pay at least half of extra costs (including extra police); adequate city/Agency funds are budgeted; and the event is compatible with the Redevelopment Agency's Central Business District goals. (Ord. 2972, passed 2000)"
+      }
+    ]
+  },
+  {
+    "n": 4,
+    "question": "What is the typical added cost (permit + insurance + staffing + ABC license) of adding alcohol service to a one-day activation in Fullerton, and how does that compare to what a comparable activation charges guests?",
+    "hits": [
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Permit Issuance Fee",
+        "similarity": 0.881,
+        "content": "Public Works Engineering Permit Issuance Fee: $1,000 or $2,000 (two-tier flat fee - the form doesn't state the criteria distinguishing which events fall in which tier). Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4260 (E2020E/E2020D)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Inspection and Plan Check Fee",
+        "similarity": 0.876,
+        "content": "Public Works Engineering Inspection and Plan Check Fee: $161 flat fee. Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4614 (E2030A)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.875,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      },
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Fees",
+        "similarity": 0.874,
+        "content": "Catering and Event Authorization fees (effective 2022-01-01), charged per day: 0 to 999 attendance = $100; 1,000 to 4,999 attendance = $325; 5,000 or more attendance = $1,000; Invitation Only Events (per Business and Professions Code Section 25600.5) = $250; Estate Tasting Event Permit = $100. For a typical small-to-mid-size wedding or activation (well under 1,000 guests), the applicable fee is $100/day."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Police Department Staffing",
+        "similarity": 0.871,
+        "content": "Police Department Staffing: billed hourly after the event, only if police officers are determined necessary per Fullerton Municipal Code \u00a78.71.050(A)(10). No flat rate is given on this form for the hourly rate. Applies to both permit tracks, situationally. Account code 10277-4730 (7253)."
+      }
+    ]
+  },
+  {
+    "n": 5,
+    "question": "Is there an attendance cap that triggers fire-marshal/occupancy review for a temporary event at a gym in Fullerton?",
+    "hits": [
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Police Department Staffing",
+        "similarity": 0.858,
+        "content": "Police Department Staffing: billed hourly after the event, only if police officers are determined necessary per Fullerton Municipal Code \u00a78.71.050(A)(10). No flat rate is given on this form for the hourly rate. Applies to both permit tracks, situationally. Account code 10277-4730 (7253)."
+      },
+      {
+        "document_title": "OC Fire Authority: Special Event Permits (Prevention Field Services)",
+        "section_reference": "Overview and activities requiring a permit",
+        "similarity": 0.854,
+        "content": "OC Fire Authority (OCFA) Prevention Field Services manages special event permits for temporary activities or equipment presenting elevated hazards, for events with invited guests or the general public on public or private property. Activities requiring a permit include: tents and canopies; carnivals and fairs; haunted houses and mazes; fireworks and special effects; open flames (bonfires, pit barbecues, candles); and non-primary facility uses (e.g. a warehouse hosting a concert). This directly covers an outdoor wedding reception tent or a gym hosting a non-primary-use pop-up event."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.854,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "OC Fire Authority: Special Event Permits (Prevention Field Services)",
+        "section_reference": "Costs",
+        "similarity": 0.853,
+        "content": "OCFA states that special event permit fees vary based on event type, size, public safety impact, and whether fire code permits apply - the total fee is determined only after OCFA evaluates the specific application, with no fixed published base rate. Payment (credit card, electronic check, or cash at OCFA Headquarters) is due before the event date, the first inspection, or within six weeks of invoicing, whichever comes first."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Joint Fire Dept. & Building Dept. Inspection (after-hours/weekends)",
+        "similarity": 0.851,
+        "content": "Joint Inspection from Fire Department and Building Department, after-hours or on weekends: $450 flat fee. Applies to both the private-property and public-property Special Event Permit tracks."
+      }
+    ]
+  },
+  {
+    "n": 6,
+    "question": "What insurance/Certificate of Insurance (COI) liability limits does Fullerton typically require for a one-day third-party activation, and how much does that coverage typically cost?",
+    "hits": [
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.866,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.862,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Permit Issuance Fee",
+        "similarity": 0.86,
+        "content": "Public Works Engineering Permit Issuance Fee: $1,000 or $2,000 (two-tier flat fee - the form doesn't state the criteria distinguishing which events fall in which tier). Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4260 (E2020E/E2020D)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Inspection and Plan Check Fee",
+        "similarity": 0.858,
+        "content": "Public Works Engineering Inspection and Plan Check Fee: $161 flat fee. Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4614 (E2030A)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Police Department Staffing",
+        "similarity": 0.855,
+        "content": "Police Department Staffing: billed hourly after the event, only if police officers are determined necessary per Fullerton Municipal Code \u00a78.71.050(A)(10). No flat rate is given on this form for the hourly rate. Applies to both permit tracks, situationally. Account code 10277-4730 (7253)."
+      }
+    ]
+  },
+  {
+    "n": 7,
+    "question": "How many special-event or TUP filings can one venue submit per year in Fullerton before the city requires a CUP instead?",
+    "hits": [
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.901,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.885,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Permit Issuance Fee",
+        "similarity": 0.881,
+        "content": "Public Works Engineering Permit Issuance Fee: $1,000 or $2,000 (two-tier flat fee - the form doesn't state the criteria distinguishing which events fall in which tier). Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4260 (E2020E/E2020D)."
+      },
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Process and Limits",
+        "similarity": 0.876,
+        "content": "Form ABC-218 must be submitted at least three days before the event (or at least five days if applying online at services.abc.ca.gov) and no more than 30 days before the event; late or early submissions may not be processed. There is a limit of 36 catered events per year at any single location. Multi-day events must have consecutive dates with identical attendance and hours each day, or must be filed as separate single-day events. The event may require operating conditions, property owner approval, law enforcement agency approval, or a supplemental site diagram (Form ABC-253)."
+      },
+      {
+        "document_title": "Chapter 15.70: Conditional Use Permits",
+        "section_reference": "\u00a715.70.020",
+        "similarity": 0.874,
+        "content": "APPLICATION AND FEES. A CUP application may be filed only by (or with written authorization from) the legal property owner. It must be made on a Community and Economic Development Department form and include: a completed preliminary environmental description form; maps/drawings/plans/tabulations describing the request; and the required fee, as prescribed by resolution of the City Council. NOTE: no dollar amount for this fee appears in the ordinance text itself - it is set by a separate City Council fee resolution not yet located in this knowledge base. (Ord. 2982, passed 2001; Ord. 3131, passed 2009; Ord. 3232, passed 2016)"
+      }
+    ]
+  },
+  {
+    "n": 8,
+    "question": "What's the typical market rental rate range for a mid-size event space (wedding venue or gym floor) in Fullerton for a single-day activation?",
+    "hits": [
+      {
+        "document_title": "RSVP Event Space",
+        "section_reference": "RSVP Event Space",
+        "similarity": 0.886,
+        "content": "RSVP Event Space is located at 114 E Amerige Ave, Fullerton, CA 92832, USA. Google Places categories: event_venue, point_of_interest, establishment. Google rating: 4.7/5 (11 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "EvntFull Space",
+        "section_reference": "EvntFull Space",
+        "similarity": 0.884,
+        "content": "EvntFull Space is located at 111 N Euclid St, Fullerton, CA 92832, USA. Google Places categories: event_venue, point_of_interest, service, establishment. Google rating: 4.9/5 (48 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Fullerton Community Center",
+        "section_reference": "Fullerton Community Center",
+        "similarity": 0.881,
+        "content": "Fullerton Community Center is located at 340 W Commonwealth Ave, Fullerton, CA 92832, USA. Google Places categories: community_center, event_venue, point_of_interest, service, establishment. Google rating: 4.6/5 (357 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.87,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.868,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      }
+    ]
+  },
+  {
+    "n": 9,
+    "question": "For a venue that wants to keep per-guest activation pricing low enough for a local community group, does the knowledge base have enough fee, insurance, and market-rate data to say whether that activation can still break even?",
+    "hits": [
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Fees",
+        "similarity": 0.843,
+        "content": "Catering and Event Authorization fees (effective 2022-01-01), charged per day: 0 to 999 attendance = $100; 1,000 to 4,999 attendance = $325; 5,000 or more attendance = $1,000; Invitation Only Events (per Business and Professions Code Section 25600.5) = $250; Estate Tasting Event Permit = $100. For a typical small-to-mid-size wedding or activation (well under 1,000 guests), the applicable fee is $100/day."
+      },
+      {
+        "document_title": "ABC-221: Daily License Application (nonprofit temporary alcohol permit)",
+        "section_reference": "Daily License - Eligibility",
+        "similarity": 0.835,
+        "content": "The Daily License (Form ABC-221) is available only to qualifying organizations: amateur sports organizations, charitable organizations, civic organizations, cultural organizations, fraternal organizations in existence over five years with regular membership, political organizations (including parties/affiliates supporting a candidate or ballot measure), religious organizations, social organizations, nonprofit corporations, television stations (for specific statutory purposes), persons conducting an estate wine sale, and women's educational/charitable organizations. A private for-profit wedding venue or gym does NOT itself qualify - it would need a genuine qualifying nonprofit to be the licensed organization, or must instead use a Catering/Event Authorization (Form ABC-218) via a properly licensed caterer."
+      },
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Process and Limits",
+        "similarity": 0.815,
+        "content": "Form ABC-218 must be submitted at least three days before the event (or at least five days if applying online at services.abc.ca.gov) and no more than 30 days before the event; late or early submissions may not be processed. There is a limit of 36 catered events per year at any single location. Multi-day events must have consecutive dates with identical attendance and hours each day, or must be filed as separate single-day events. The event may require operating conditions, property owner approval, law enforcement agency approval, or a supplemental site diagram (Form ABC-253)."
+      },
+      {
+        "document_title": "Chapter 15.58: Special Events on Private Property",
+        "section_reference": "\u00a715.58.090",
+        "similarity": 0.814,
+        "content": "BUSINESS LICENSES. A special event permit under this chapter controls over any business licenses issued under Chapter 4.02. Only vendors with prior written approval from the special event permit holder may operate within the event venue (approval shall not be unreasonably withheld). The permit holder may charge vendors a reasonable registration fee. (Ord. 2982, passed 2001)"
+      },
+      {
+        "document_title": "OC Fire Authority: Special Event Permits (Prevention Field Services)",
+        "section_reference": "Costs",
+        "similarity": 0.812,
+        "content": "OCFA states that special event permit fees vary based on event type, size, public safety impact, and whether fire code permits apply - the total fee is determined only after OCFA evaluates the specific application, with no fixed published base rate. Payment (credit card, electronic check, or cash at OCFA Headquarters) is due before the event date, the first inspection, or within six weeks of invoicing, whichever comes first."
+      }
+    ]
+  },
+  {
+    "n": 10,
+    "question": "Does temporarily converting gym floor space for a wedding reception or private event trigger a change-of-use or building-code inspection, separate from the event permit itself?",
+    "hits": [
+      {
+        "document_title": "Chapter 15.58: Special Events on Private Property",
+        "section_reference": "\u00a715.58.030",
+        "similarity": 0.86,
+        "content": "PERMIT REQUIRED. (A) A special event shall be prohibited on private property unless a properly issued special event permit is first issued to the applicant. An application for a special event on private property shall be filed with the Community and Economic Development Department. (B) An application for a special event in a public park shall be filed with the Director of Parks and Recreation in accordance with Chapter 9.12 of this code. (C) An application for a special event using a public street and/or a public facility shall be filed with the Director of Public Works in accordance with Chapter 8.71 of this code. (Ord. 2982, passed 2001; Ord. 3232, passed 2016)"
+      },
+      {
+        "document_title": "Chapter 8.71: Special Events on Public Streets and Public Facilities",
+        "section_reference": "\u00a78.71.030",
+        "similarity": 0.86,
+        "content": "PERMIT REQUIRED. (A) A special event on a public street/facility requires a permit filed with the Director of Public Works. (B) A special event in a city park/open space area is filed with the Director of Parks and Recreation under Chapter 9.12. (C) A special event on private property is filed with the Director of Development Services under Chapter 15.58. (D) No permit is required for events the city/Redevelopment Agency co-sponsors, subject to findings: the organization is IRS-recognized nonprofit; a majority of its members/officers are city residents (waivable for other local-government co-sponsors); the organization agrees to pay at least half of extra costs (including extra police); adequate city/Agency funds are budgeted; and the event is compatible with the Redevelopment Agency's Central Business District goals. (Ord. 2972, passed 2000)"
+      },
+      {
+        "document_title": "Chapter 15.58: Special Events on Private Property",
+        "section_reference": "\u00a715.58.025",
+        "similarity": 0.856,
+        "content": "APPLICABILITY. (A) Special events (private property) shall be subject to the review and approval process specified in this chapter. (B) Special events (public property) shall be subject to review and approval from the Public Works Department and/or Parks and Recreation Department. (C) A temporary commercial activity, such as a sidewalk or parking lot sale, shall be subject to the provisions of \u00a715.58.095 and shall not be considered a special event for purposes of this chapter. (Ord. 3232, passed 2016)"
+      },
+      {
+        "document_title": "Chapter 8.71: Special Events on Public Streets and Public Facilities",
+        "section_reference": "\u00a78.71.060",
+        "similarity": 0.85,
+        "content": "PROCEDURE FOR REVIEW OF APPLICATION. Decided by the Director of Public Works after consulting other city departments; adjacent owners/residents may be notified. If the venue is within a parking district, the Board of Parking Place Commissioners holds a public hearing and may impose conditions; otherwise the application is routed to the Chief of Police, Fire Chief, and Director of Development Services for review/recommended conditions. Approval findings: the event is run by a nonprofit/community organization/local business based in the city; it promotes the city, residents, or businesses; it's consistent with public peace/health/safety; and it won't unreasonably interfere with adjacent property use. Permit issuance requires fees paid, bonds posted, and insurance certificates on file. (Ord. 2972, passed 2000)"
+      },
+      {
+        "document_title": "Chapter 15.58: Special Events on Private Property",
+        "section_reference": "\u00a715.58.060",
+        "similarity": 0.849,
+        "content": "PROCEDURE FOR REVIEW OF APPLICATION. (A) A decision to approve a special event permit on private property is made by the Director of Community and Economic Development or their designee. (B) Before acting, the Director shall consult other city departments, review compliance history at the location, and mail notification to adjacent properties no later than five days before the event (including off-site parking locations if applicable), containing a map, event description, and contact information for comments before/during/after the event. (Ord. 2982, passed 2001; Ord. 3232, passed 2016)"
+      }
+    ]
+  },
+  {
+    "n": 11,
+    "question": "If a venue offers a discounted rate to a local nonprofit renting the space, how much margin is left after permit, insurance, and staffing costs at that discounted price?",
+    "hits": [
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Fees",
+        "similarity": 0.853,
+        "content": "Catering and Event Authorization fees (effective 2022-01-01), charged per day: 0 to 999 attendance = $100; 1,000 to 4,999 attendance = $325; 5,000 or more attendance = $1,000; Invitation Only Events (per Business and Professions Code Section 25600.5) = $250; Estate Tasting Event Permit = $100. For a typical small-to-mid-size wedding or activation (well under 1,000 guests), the applicable fee is $100/day."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Public Works Engineering Permit Issuance Fee",
+        "similarity": 0.839,
+        "content": "Public Works Engineering Permit Issuance Fee: $1,000 or $2,000 (two-tier flat fee - the form doesn't state the criteria distinguishing which events fall in which tier). Applies to the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.040. Account code 10322-4260 (E2020E/E2020D)."
+      },
+      {
+        "document_title": "Chapter 8.71: Special Events on Public Streets and Public Facilities",
+        "section_reference": "\u00a78.71.030",
+        "similarity": 0.838,
+        "content": "PERMIT REQUIRED. (A) A special event on a public street/facility requires a permit filed with the Director of Public Works. (B) A special event in a city park/open space area is filed with the Director of Parks and Recreation under Chapter 9.12. (C) A special event on private property is filed with the Director of Development Services under Chapter 15.58. (D) No permit is required for events the city/Redevelopment Agency co-sponsors, subject to findings: the organization is IRS-recognized nonprofit; a majority of its members/officers are city residents (waivable for other local-government co-sponsors); the organization agrees to pay at least half of extra costs (including extra police); adequate city/Agency funds are budgeted; and the event is compatible with the Redevelopment Agency's Central Business District goals. (Ord. 2972, passed 2000)"
+      },
+      {
+        "document_title": "Chapter 8.71: Special Events on Public Streets and Public Facilities",
+        "section_reference": "\u00a78.71.090",
+        "similarity": 0.835,
+        "content": "BUSINESS LICENSES. A special event permit under this chapter controls over business licenses issued under \u00a74.02.010. Only vendors with prior written approval from the permit holder may operate within the venue (approval not to be unreasonably withheld); the permit holder may charge vendors a reasonable registration fee. (Ord. 2972, passed 2000)"
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.833,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      }
+    ]
+  },
+  {
+    "n": 12,
+    "question": "Should I buy or lease a specific property to open a wedding venue in Fullerton?",
+    "hits": [
+      {
+        "document_title": "Summit House Weddings",
+        "section_reference": "Summit House Weddings",
+        "similarity": 0.856,
+        "content": "Summit House Weddings is located at 2000 E Bastanchury Rd, Fullerton, CA 92835, USA. Google Places categories: wedding_venue, event_venue, point_of_interest, service, establishment. Google rating: 4.8/5 (34 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Fullerton Community Center",
+        "section_reference": "Fullerton Community Center",
+        "similarity": 0.853,
+        "content": "Fullerton Community Center is located at 340 W Commonwealth Ave, Fullerton, CA 92832, USA. Google Places categories: community_center, event_venue, point_of_interest, service, establishment. Google rating: 4.6/5 (357 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Community Development Permit Issuance Fee",
+        "similarity": 0.853,
+        "content": "Community Development Permit Issuance Fee: $100 flat fee. Applies to the private-property Special Event Permit track under Fullerton Municipal Code \u00a715.58.040. Account code 10345-4614 (3221)."
+      },
+      {
+        "document_title": "Application for a Special Event Permit - Fee Schedule (Private Property and/or Public Property)",
+        "section_reference": "Fee: Refundable Deposit",
+        "similarity": 0.852,
+        "content": "Refundable Deposit: $1,000 or $2,000, required for the public-property Special Event Permit track under Fullerton Municipal Code \u00a78.71.050(A)(1), except waived for block parties. Account code 10-2420 (2000)."
+      },
+      {
+        "document_title": "RSVP Event Space",
+        "section_reference": "RSVP Event Space",
+        "similarity": 0.851,
+        "content": "RSVP Event Space is located at 114 E Amerige Ave, Fullerton, CA 92832, USA. Google Places categories: event_venue, point_of_interest, establishment. Google rating: 4.7/5 (11 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      }
+    ]
+  },
+  {
+    "n": 13,
+    "question": "What will my gym's activation revenue be next quarter?",
+    "hits": [
+      {
+        "document_title": "E\u014dS Fitness",
+        "section_reference": "E\u014dS Fitness",
+        "similarity": 0.813,
+        "content": "E\u014dS Fitness is located at 1973 W Malvern Ave, Fullerton, CA 92833, USA. Google Places categories: gym, yoga_studio, fitness_center, sports_complex, sports_school, sauna, spa, public_bath, swimming_pool, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 4/5 (786 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "E\u014dS Fitness",
+        "section_reference": "E\u014dS Fitness",
+        "similarity": 0.81,
+        "content": "E\u014dS Fitness is located at 2420 E Chapman Ave Unit 806-001, Fullerton, CA 92831, USA. Google Places categories: gym, yoga_studio, fitness_center, sports_complex, sports_school, sauna, spa, public_bath, sports_activity_location, health, point_of_interest, service, establishment. Google rating: 4.3/5 (1098 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "ABC-218: Catering Authorization Application (event alcohol service via licensed caterer)",
+        "section_reference": "Catering Authorization - Fees",
+        "similarity": 0.81,
+        "content": "Catering and Event Authorization fees (effective 2022-01-01), charged per day: 0 to 999 attendance = $100; 1,000 to 4,999 attendance = $325; 5,000 or more attendance = $1,000; Invitation Only Events (per Business and Professions Code Section 25600.5) = $250; Estate Tasting Event Permit = $100. For a typical small-to-mid-size wedding or activation (well under 1,000 guests), the applicable fee is $100/day."
+      },
+      {
+        "document_title": "Chuze Fitness",
+        "section_reference": "Chuze Fitness",
+        "similarity": 0.808,
+        "content": "Chuze Fitness is located at 246 E Orangethorpe Ave, Fullerton, CA 92832, USA. Google Places categories: gym, fitness_center, sports_activity_location, health, point_of_interest, establishment. Google rating: 4.6/5 (917 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      },
+      {
+        "document_title": "Platinum Fitness",
+        "section_reference": "Platinum Fitness",
+        "similarity": 0.807,
+        "content": "Platinum Fitness is located at 645 S State College Blvd Ste J, Fullerton, CA 92831, USA. Google Places categories: gym, sports_complex, sports_activity_location, health, point_of_interest, establishment. Google rating: 4.9/5 (24 ratings). Source: Google Places API (New), a venue-directory signal only - ratings and category tags, not an actual rental rate or activation fee."
+      }
+    ]
+  }
+]
