@@ -17,8 +17,9 @@ Villa Park, a small residential enclave with little activation-venue
 activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
-**Status: Fullerton (Phase 1-3) and Anaheim (this phase) are ingested. The
-other seven are planned, not started.**
+**Status: Fullerton (Phase 1-3), Anaheim, and Brea are ingested. The other
+six (La Habra, Santa Ana, Tustin, Buena Park, Stanton, Orange) are planned,
+not started.**
 
 ## Architecture decisions (apply once, benefit every future city)
 
@@ -109,6 +110,18 @@ preference for not retrofitting abstractions onto working code.
 7. **Verify, don't just ingest.** Query `hybrid_search` scoped to the new
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
+
+## Brea: complete
+
+All four sources ingested, with two real findings worth carrying forward
+into later cities: (1) a city's actual municipal code host isn't always the
+blocker — Brea's own current TUP application PDF was a richer, directly-
+fetchable primary source than the amlegal.com-blocked code chapter would
+have been; (2) when a fee figure conflicts across two of a city's own pages,
+surface both clearly rather than silently pick one — Brea's general fee
+schedule and its TUP application state different numbers for what sounds
+like the same fee. Also confirmed the most extreme cross-city contamination
+case yet: Zola's "Brea, CA" search returned zero venues actually in Brea.
 
 ## Anaheim: complete
 
