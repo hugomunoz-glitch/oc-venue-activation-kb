@@ -17,9 +17,9 @@ Villa Park, a small residential enclave with little activation-venue
 activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
-**Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, Santa Ana, and
-Tustin are ingested. The other three (Buena Park, Stanton, Orange) are
-planned, not started.**
+**Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, Santa Ana, Tustin,
+and Buena Park are ingested. The other two (Stanton, Orange) are planned,
+not started.**
 
 ## Architecture decisions (apply once, benefit every future city)
 
@@ -110,6 +110,14 @@ preference for not retrofitting abstractions onto working code.
 7. **Verify, don't just ingest.** Query `hybrid_search` scoped to the new
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
+
+## Buena Park: complete
+
+ecode360.com confirmed-blocked again (fifth code-hosting platform, second
+time for this specific host after Brea). Notably, no fee discrepancy this
+round - the TUP application form's fee matched the general schedule
+exactly, a useful reminder that the Brea/Tustin discrepancies are real
+findings, not something to expect by default every time.
 
 ## Tustin: complete
 
