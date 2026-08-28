@@ -18,8 +18,7 @@ activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
 **Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, Santa Ana, Tustin,
-and Buena Park are ingested. The other two (Stanton, Orange) are planned,
-not started.**
+Buena Park, and Stanton are ingested. Orange is planned, not started.**
 
 ## Architecture decisions (apply once, benefit every future city)
 
@@ -110,6 +109,18 @@ preference for not retrofitting abstractions onto working code.
 7. **Verify, don't just ingest.** Query `hybrid_search` scoped to the new
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
+
+## Stanton: complete
+
+A real limit surfaced this round, not just a finding: no genuine primary-
+sourced application form existed for Stanton's TUP/Special Event ordinance,
+only search-engine paraphrases of the blocked code text. Rather than
+encode those as verified fact, only the directly-fetched fee schedule was
+ingested and the ordinance thresholds left as an honest, stated gap - the
+right call given this project's own prior lesson (La Habra's CUP fee) about
+not trusting secondhand summaries. Third "Zola returns zero genuine local
+venues" case; the one real venue found (the city's own Civic Center) has no
+published price, recorded as a gap rather than guessed.
 
 ## Buena Park: complete
 
