@@ -275,21 +275,40 @@ looking up all 34 of these venues via Google Places Text Search
 address into each chunk, and re-embedding.
 
 That lookup also re-ran the address-verification check this project applies
-everywhere else, and it caught 4 real mismatches the original "(City, CA)"
-label had missed:
+everywhere else, and initially flagged 4 mismatches against the original
+"(City, CA)" label. Two were real; two were false positives in the
+automated lookup itself, caught only because the user pushed back on one of
+them - a good reminder that "the API returned a different address" isn't
+automatically more trustworthy than what a human already verified.
 
+**Real, kept:**
 - **Hotel Fera Anaheim** - tagged to Anaheim, real address is in Orange
   (Orange is a tracked city) - retagged rather than deleted.
 - **Anaheim Marriott Suites** - real address is in Garden Grove (not a
-  tracked city) - excluded, same as the untracked-city exclusions from the
-  original Fullerton/Zola pull.
-- **Fireside Farm OC** - tagged to Orange, real address is in Costa Mesa
-  (not tracked) - excluded.
-- **Orange County Mining Co.** - tagged to Santa Ana, real address is in
-  North Tustin, an unincorporated community distinct from the City of
-  Tustin (not the same jurisdiction, so not a safe retag either) - excluded.
+  tracked city, confirmed independently via Yelp/TripAdvisor/the official
+  Anaheim tourism site) - excluded, same as the untracked-city exclusions
+  from the original Fullerton/Zola pull.
 
-30 of the 34 venues checked out clean on the first pass. The 4 mismatches
-were real gaps in the original "trust the marketplace's own city label"
-verification - not something the address backfill was expected to find,
-but a direct benefit of doing it properly.
+**False positives, reverted:**
+- **Fireside Farm OC** - Google Places Text Search returned the OC Fair &
+  Event Center (88 Fair Dr, Costa Mesa) for this query - a fuzzy-match
+  failure against a small venue with little Google Places presence, not a
+  real address for this venue. Every actual source (the venue's own Zola
+  listing, the original ingestion's own verification) says Orange. No
+  verified street address exists publicly for it, so none was invented on
+  restore - it went back in with its original content, unchanged.
+- **Orange County Mining Co.** - Google's `formattedAddress` for the
+  correct, real address (10000 Crawford Canyon Rd) uses "North Tustin," an
+  unincorporated community name, not "Santa Ana." But the original
+  ingestion had already deliberately double-checked this exact venue
+  (see `chunks_santa_ana_pricing.py`'s header comment) and every commercial
+  directory - OpenTable, DoorDash, Groupon, Tripadvisor, and the Santa Ana
+  Chamber of Commerce itself - lists it under Santa Ana at that address.
+  Restored to Santa Ana, now with the verified address added.
+
+30 of the 34 venues checked out clean on the first pass, and 2 of the
+remaining 4 were genuine corrections. The other 2 were this session's own
+mistake: trusting a single automated Places lookup's city label over a
+verification that had already been done carefully at ingestion time,
+without cross-checking before deleting real data. Restored via
+`scripts/ingest/restore_wrongly_excluded_venues.sql`.

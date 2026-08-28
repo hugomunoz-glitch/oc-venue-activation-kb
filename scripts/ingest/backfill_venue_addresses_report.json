@@ -156,25 +156,29 @@
       "name": "Anaheim Marriott Suites",
       "tagged_city": "Anaheim",
       "real_address": "12015 Harbor Blvd, Garden Grove, CA 92840, USA",
-      "chunk_id": "2d2d325e-f81d-4ae2-a4f1-2bd33d2a815c"
+      "chunk_id": "2d2d325e-f81d-4ae2-a4f1-2bd33d2a815c",
+      "resolution": "confirmed real - excluded (independently verified via Yelp/TripAdvisor/visitanaheim.org)"
     },
     {
       "name": "Hotel Fera Anaheim, a DoubleTree by Hilton",
       "tagged_city": "Anaheim",
       "real_address": "100 The City Dr S, Orange, CA 92868, USA",
-      "chunk_id": "1e000a79-3236-48aa-8779-947bdb383b5b"
+      "chunk_id": "1e000a79-3236-48aa-8779-947bdb383b5b",
+      "resolution": "confirmed real - retagged to Orange (independently verified via Yelp/Hilton/visitanaheim.org)"
     },
     {
       "name": "Fireside Farm OC",
       "tagged_city": "Orange",
       "real_address": "88 Fair Dr, Costa Mesa, CA 92626, USA",
-      "chunk_id": "fe2a1df6-4281-463a-b73a-b9d80621fbe6"
+      "chunk_id": "fe2a1df6-4281-463a-b73a-b9d80621fbe6",
+      "resolution": "FALSE POSITIVE - Places Text Search matched the wrong venue (OC Fair & Event Center) for a small, lightly-indexed listing. Every real source says Orange. Reverted via restore_wrongly_excluded_venues.sql; no address added (none verified to exist)."
     },
     {
       "name": "Orange County Mining Co.",
       "tagged_city": "Santa Ana",
       "real_address": "10000 S Crawford Canyon Rd, North Tustin, CA 92705, USA",
-      "chunk_id": "1360b0ba-b41f-4cb5-93a6-fd5df57c6520"
+      "chunk_id": "1360b0ba-b41f-4cb5-93a6-fd5df57c6520",
+      "resolution": "FALSE POSITIVE - \"North Tustin\" is Google's unincorporated-community name for this address, not a different city. Original ingestion had already verified this as Santa Ana; every business directory agrees. Reverted via restore_wrongly_excluded_venues.sql, now with the verified address added."
     }
   ],
   "not_found": []
