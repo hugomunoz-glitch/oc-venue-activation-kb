@@ -81,8 +81,14 @@ async function fetchCities(): Promise<City[]> {
 // both treated as "ask, don't guess" - silently defaulting to one city, or
 // searching unscoped across all of them, is exactly the cross-city
 // contamination the city_id filter exists to prevent.
+//
+// One real naming collision: the city "Orange" shares its name with the
+// region this whole knowledge base is about (Orange County) - a substring
+// match would wrongly fire on every generic "Orange County" mention, which
+// is common in this domain. Strip that phrase out before matching so it
+// doesn't silently resolve to the city of Orange.
 function detectCity(question: string, cities: City[]): City[] {
-  const lower = question.toLowerCase();
+  const lower = question.toLowerCase().replace(/\borange county\b/g, "");
   return cities.filter((c) => lower.includes(c.name.toLowerCase()));
 }
 
