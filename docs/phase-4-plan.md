@@ -17,8 +17,8 @@ Villa Park, a small residential enclave with little activation-venue
 activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
-**Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, Santa Ana, Tustin,
-Buena Park, and Stanton are ingested. Orange is planned, not started.**
+**Status: complete. All nine cities (Fullerton, Anaheim, Brea, La Habra,
+Santa Ana, Tustin, Buena Park, Stanton, Orange) are ingested and verified.**
 
 ## Architecture decisions (apply once, benefit every future city)
 
@@ -110,6 +110,20 @@ preference for not retrofitting abstractions onto working code.
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
 
+## Orange: complete (the ninth and final city)
+
+Confirms this project's biggest architectural risk from this phase paid
+off in reverse, too: naming Orange as the ninth city meant its name
+collides with "Orange County," the region this whole knowledge base
+covers - a real bug, not a hypothetical one, since generic "Orange County"
+mentions are common in this domain. Caught and fixed before it shipped
+(strip the phrase before matching), verified live that it doesn't silently
+misresolve. Also the richest Google Places pull of the whole phase (33
+venues) and the first city where Zola's own search actually surfaced
+mostly-genuine local results, confirming Old Towne Orange's real
+wedding-venue activity - the reasoning that got Orange chosen as the ninth
+city in the first place held up against real data.
+
 ## Stanton: complete
 
 A real limit surfaced this round, not just a finding: no genuine primary-
@@ -195,9 +209,26 @@ answers" and "a Fullerton question still only returns Fullerton content."
 
 ## What's still open for Phase 4 overall
 
-- Seven more cities (Brea, La Habra, Santa Ana, Tustin, Buena Park, Stanton,
-  Orange), each following the recipe above.
+All nine planned cities are ingested. What remains is documentation and
+data-quality follow-up, not new cities:
+
 - `supabase/migrations/` still has no local file history for this project's
   schema (it exists as a tracked migration history inside the live Supabase
   project itself, just never pulled down into this repo) — worth closing
-  before the schema accumulates further multi-city changes.
+  now that the schema has absorbed nine cities' worth of changes.
+- Four cities (Stanton, Orange, and partially Santa Ana/Buena Park) are
+  missing their own ordinance's event-duration/frequency thresholds,
+  because no genuine primary-sourced application form or directly-
+  fetchable code text was found - only search-engine paraphrases, which
+  were deliberately not encoded as verified fact. Worth revisiting if a
+  working source turns up, or via the same manual-retrieval fallback used
+  for Fullerton/Anaheim/La Habra.
+- Two genuine, unreconciled fee discrepancies exist in the data (Brea's
+  $55 vs. $850 special-event fee; Tustin's $1,103 vs. $2,243 Large
+  Gathering Permit deposit) - both surfaced honestly to the user rather
+  than silently resolved, but worth a follow-up call to each city if this
+  ever needs a single authoritative number.
+- A small per-city evaluation pass (mirroring Fullerton's original
+  13-question set, but scoped to each new city) hasn't been run for any of
+  the eight cities added this phase - only spot-checked questions during
+  ingestion.
