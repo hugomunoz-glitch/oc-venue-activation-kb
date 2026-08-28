@@ -207,28 +207,42 @@ real 9-day/4-per-year limits.
 13-question Fullerton set) checking both "Anaheim questions get Anaheim
 answers" and "a Fullerton question still only returns Fullerton content."
 
-## What's still open for Phase 4 overall
+## Follow-up work completed after all nine cities shipped
 
-All nine planned cities are ingested. What remains is documentation and
-data-quality follow-up, not new cities:
+Three items were flagged as open once ingestion finished; here's what
+happened on each.
 
-- `supabase/migrations/` still has no local file history for this project's
-  schema (it exists as a tracked migration history inside the live Supabase
-  project itself, just never pulled down into this repo) — worth closing
-  now that the schema has absorbed nine cities' worth of changes.
-- Four cities (Stanton, Orange, and partially Santa Ana/Buena Park) are
-  missing their own ordinance's event-duration/frequency thresholds,
-  because no genuine primary-sourced application form or directly-
-  fetchable code text was found - only search-engine paraphrases, which
-  were deliberately not encoded as verified fact. Worth revisiting if a
-  working source turns up, or via the same manual-retrieval fallback used
-  for Fullerton/Anaheim/La Habra.
-- Two genuine, unreconciled fee discrepancies exist in the data (Brea's
-  $55 vs. $850 special-event fee; Tustin's $1,103 vs. $2,243 Large
-  Gathering Permit deposit) - both surfaced honestly to the user rather
-  than silently resolved, but worth a follow-up call to each city if this
-  ever needs a single authoritative number.
-- A small per-city evaluation pass (mirroring Fullerton's original
-  13-question set, but scoped to each new city) hasn't been run for any of
-  the eight cities added this phase - only spot-checked questions during
-  ingestion.
+**Schema pulled into local migration files.** `supabase/migrations/` now
+has all 7 real migrations, as exact original SQL - not reconstructed from
+introspection. Supabase's own migration history table stores the full
+statement text alongside each tracked version, not just a version/name
+pair, so this was a direct, verbatim pull rather than a best-effort rebuild.
+
+**Missing ordinance thresholds (Stanton, Orange, part of Buena Park):
+genuinely revisited, still open.** Beyond the original ecode360.com/
+municode.com attempts, tried three more channels specifically to see if a
+working source existed: the Wayback Machine (blocked entirely - Claude Code
+cannot fetch web.archive.org), two third-party code-mirror sites
+(us.citylaws.org and zoneomics.com - both load, but neither exposes the
+actual chapter text, only tables of contents or unrelated derived articles),
+and a direct search for a city-hosted PDF of Buena Park's zoning ordinance
+(none exists - `buenapark.com`'s own zoning page links straight back to the
+blocked ecode360 mirror). This remains a genuine gap pending manual
+retrieval, the same fallback that worked for Fullerton, Anaheim, and La
+Habra - not something more automated searching was able to close.
+
+**Per-city evaluation pass: done.** 40 questions (5 per new city, mirroring
+Fullerton's original categories - permit classification, fee, duration/
+frequency threshold, insurance, market pricing) run against the live
+system. Full results and grading in
+[`scripts/eval/phase4_city_evaluation.md`](../scripts/eval/phase4_city_evaluation.md).
+Headline: **40/40 correct city routing** (zero cross-contamination across
+all nine cities tested together for the first time), 38 correct answers,
+and 2 correct honest refusals on genuine source gaps - no incorrect
+answers.
+
+The two genuine, unreconciled fee discrepancies (Brea's $55 vs. $850;
+Tustin's $1,103 vs. $2,243) remain by design - both are real, current,
+city-issued figures with no rule in this knowledge base for which applies
+at filing time, and the evaluation confirmed the system surfaces both
+honestly without being asked to.

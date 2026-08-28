@@ -1,0 +1,767 @@
+[
+  {
+    "expected_city": "Anaheim",
+    "question": "What permits does a gym in Anaheim need to host a one-day fitness pop-up event on its own property?",
+    "answer": "A gym in Anaheim hosting a one-day fitness pop-up event on its own lot requires a Special Event Permit for 'Special Events - Outdoor Activity' under Anaheim Municipal Code \u00a718.38.230 [1], [3]. Additionally, if any structures (such as tents) are to be erected, approval is required from the Building Division, Fire Department, and Electrical Engineering Division [2].",
+    "refused": false,
+    "returned_city": "Anaheim",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Anaheim Municipal Code Ch. 18.38/18.118: Special Events, Festival Permit, Temporary Uses",
+        "section_reference": "\u00a718.38.230 - Special Events, Outdoor Activity: definition and permit requirement",
+        "similarity": 0.926771998405463
+      },
+      {
+        "title": "Anaheim Municipal Code Ch. 18.38/18.118: Special Events, Festival Permit, Temporary Uses",
+        "section_reference": "\u00a718.38.230 - Conduct requirements (hours, structures, parking, signs)",
+        "similarity": 0.864676169435751
+      },
+      {
+        "title": "Anaheim Municipal Code Ch. 18.38/18.118: Special Events, Festival Permit, Temporary Uses",
+        "section_reference": "\u00a718.38.135 - Festival Permit: large-scale events only, not a typical one-day activation",
+        "similarity": 0.916025454761117
+      },
+      {
+        "title": "City of Anaheim Planning & Zoning Fee Schedule",
+        "section_reference": "Special Event Permit fees (Administrative)",
+        "similarity": 0.871919683928472
+      },
+      {
+        "title": "Anaheim Municipal Code Ch. 18.38/18.118: Special Events, Festival Permit, Temporary Uses",
+        "section_reference": "\u00a718.118.080 - Permitted Temporary Uses (Commercial-Recreation zone)",
+        "similarity": 0.894148072077162
+      }
+    ]
+  },
+  {
+    "expected_city": "Anaheim",
+    "question": "What does a Minor Conditional Use Permit cost in Anaheim?",
+    "answer": "In Anaheim, a Minor Conditional Use Permit (MCUP) costs a flat fee of $6,816 [1]. Note that flat-fee cases may be subject to an additional 20% fee per secondary case if filed or processed concurrently, as well as a $2,250 Resubmittal Flat Fee for multiple revisions [1].",
+    "refused": false,
+    "returned_city": "Anaheim",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Anaheim Planning & Zoning Fee Schedule",
+        "section_reference": "Conditional Use Permit (CUP) fees (Discretionary)",
+        "similarity": 0.947404977524579
+      }
+    ]
+  },
+  {
+    "expected_city": "Anaheim",
+    "question": "How many special event permits can one business get per year in Anaheim, and how many days can each one last?",
+    "answer": "In Anaheim, a business or organization can be issued a maximum of four (4) special event permits per calendar year [1]. Each special event permit cannot exceed nine (9) consecutive calendar days [1].",
+    "refused": false,
+    "returned_city": "Anaheim",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Anaheim Municipal Code Ch. 18.38/18.118: Special Events, Festival Permit, Temporary Uses",
+        "section_reference": "\u00a718.38.230 - Duration and frequency limits",
+        "similarity": 0.916120345361255
+      }
+    ]
+  },
+  {
+    "expected_city": "Anaheim",
+    "question": "What insurance does Anaheim's Festival Permit require?",
+    "answer": "Anaheim's Festival Permit requires $5,000,000+ in liability insurance [1].",
+    "refused": false,
+    "returned_city": "Anaheim",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Anaheim Municipal Code Ch. 18.38/18.118: Special Events, Festival Permit, Temporary Uses",
+        "section_reference": "\u00a718.38.135 - Festival Permit: large-scale events only, not a typical one-day activation",
+        "similarity": 0.925432205200195
+      }
+    ]
+  },
+  {
+    "expected_city": "Anaheim",
+    "question": "What is the typical market rental rate for a wedding venue in Anaheim?",
+    "answer": "Market benchmark data shows starting rental prices for wedding venues in Anaheim typically range from $3,500 to $10,676 depending on the venue and service tier [1, 2, 3, 4, 5]. Specifically, starting prices include: The Anaheim Hotel at $3,500 [1], The Westin Anaheim Resort at $8,000 [2], White House Banquets & Event Center at $9,500 [5], Anaheim Hills Golf Course at $9,999 [3], and The Grand Theater at $10,676 [4]. Additionally, Anaheim Marriott Suites lists a starting price of $99, though this is noted as an outlier that likely reflects a per-person or off-peak minimum rather than a base rental rate [6]. Actual costs vary based on date, season, and add-ons [1, 2, 3, 4, 5, 6].",
+    "refused": false,
+    "returned_city": "Anaheim",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "The Anaheim Hotel - Zola Venue Listing",
+        "section_reference": "The Anaheim Hotel",
+        "similarity": 0.929229140281677
+      },
+      {
+        "title": "The Westin Anaheim Resort - Zola Venue Listing",
+        "section_reference": "The Westin Anaheim Resort",
+        "similarity": 0.915591386425239
+      },
+      {
+        "title": "Anaheim Hills Golf Course - Zola Venue Listing",
+        "section_reference": "Anaheim Hills Golf Course",
+        "similarity": 0.910587310791016
+      },
+      {
+        "title": "The Grand Theater - Zola Venue Listing",
+        "section_reference": "The Grand Theater",
+        "similarity": 0.907483577728271
+      },
+      {
+        "title": "White House Banquets & Event Center - Zola Venue Listing",
+        "section_reference": "White House Banquets & Event Center",
+        "similarity": 0.899581080700096
+      },
+      {
+        "title": "Anaheim Marriott Suites - Zola Venue Listing",
+        "section_reference": "Anaheim Marriott Suites",
+        "similarity": 0.913054851086583
+      }
+    ]
+  },
+  {
+    "expected_city": "Brea",
+    "question": "How far in advance do I need to apply for a temporary use permit in Brea, and what does it cost?",
+    "answer": "You must submit a Temporary Use Permit (TUP) application at least 45 days before the proposed event date [1]. The cost is a flat fee of $850 for small events or an $850 deposit for large events (other fees may apply) [1]. Additionally, Brea's general city fee schedule separately lists a $55 \"Special Event/Temporary Use Permit\" fee, though the relationship between these two figures is not reconciled in the knowledge base [1, 2].",
+    "refused": false,
+    "returned_city": "Brea",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Brea Temporary Use Permit (TUP) Application",
+        "section_reference": "TUP application deadline and fee",
+        "similarity": 0.939990106821652
+      },
+      {
+        "title": "City of Brea Planning and Special Event Fees",
+        "section_reference": "Special event / inspection fees (general fee schedule)",
+        "similarity": 0.916716299955518
+      }
+    ]
+  },
+  {
+    "expected_city": "Brea",
+    "question": "What insurance does Brea require for an event on public property?",
+    "answer": "For a Temporary Use Permit (TUP) event on public property in Brea, the applicant must provide a certificate of insurance naming the City of Brea as an additional insured, with coverage that is primary and non-contributory and includes a waiver of subrogation [1]. Required coverages include: Commercial General Liability (always required) of $1,000,000 per occurrence / $2,000,000 aggregate; Workers' Compensation and Employer's Liability (if employees work the event) of $1,000,000 per occurrence plus statutory California coverage; Liquor Liability (if alcohol is supplied or sold) of $1,000,000 per occurrence / $2,000,000 aggregate; and Automobile Liability (if automobiles are involved) of $2,000,000 per occurrence / $2,000,000 aggregate [1].",
+    "refused": false,
+    "returned_city": "Brea",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Brea Temporary Use Permit (TUP) Application",
+        "section_reference": "TUP insurance requirements",
+        "similarity": 0.94980334637205
+      }
+    ]
+  },
+  {
+    "expected_city": "Brea",
+    "question": "What size tent triggers a Fire Department permit in Brea?",
+    "answer": "In Brea, tents or canopies over 400 total square feet trigger the requirement for a Fire Department permit and inspection [1].",
+    "refused": false,
+    "returned_city": "Brea",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Brea Temporary Use Permit (TUP) Application",
+        "section_reference": "TUP thresholds requiring additional permits: structures, tents, generators",
+        "similarity": 0.919527888298035
+      }
+    ]
+  },
+  {
+    "expected_city": "Brea",
+    "question": "What does a Conditional Use Permit cost in Brea?",
+    "answer": "In Brea, a Conditional Use Permit is deposit-based rather than a flat fee, requiring a $2,000 minimum deposit [1]. Costs are billed against actual staff time at $175 per hour for Management staff and $109 per hour for Technical staff, with any unused deposit funds returned following project completion [1].",
+    "refused": false,
+    "returned_city": "Brea",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Brea Planning and Special Event Fees",
+        "section_reference": "Discretionary planning fees (deposit-based)",
+        "similarity": 0.90358080023242
+      }
+    ]
+  },
+  {
+    "expected_city": "Brea",
+    "question": "What is the typical venue rental rate in Brea?",
+    "answer": "While overall typical venue rental rates across Brea are limited due to very few dedicated event venues within city limits, the Embassy Suites by Hilton Brea lists starting prices from $2,000 for 50 guests, scaling up to $5,500 depending on guest count, with actual costs varying by date, season, and add-ons [1].",
+    "refused": false,
+    "returned_city": "Brea",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Embassy Suites by Hilton Brea - North Orange County - Eventective Venue Listing",
+        "section_reference": "Embassy Suites by Hilton Brea - North Orange County",
+        "similarity": 0.917008226096141
+      }
+    ]
+  },
+  {
+    "expected_city": "La Habra",
+    "question": "How many attendees can I have before my special event in La Habra counts as a large event?",
+    "answer": "In La Habra, a temporary outdoor special event is classified as a \"Large\" event if it has 250 or more anticipated attendees [1]. Therefore, an event can have up to 249 attendees before it reaches the threshold to be considered a large event, provided it does not meet any other large event criteria [1].",
+    "refused": false,
+    "returned_city": "La Habra",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of La Habra Special Event Permit Application",
+        "section_reference": "Large vs. Small event classification and thresholds",
+        "similarity": 0.914912370291731
+      }
+    ]
+  },
+  {
+    "expected_city": "La Habra",
+    "question": "How many special events can one property host per year in La Habra?",
+    "answer": "In La Habra, a property may host up to twelve (12) special events per calendar year, with at least 30 days between each event [1]. If the events include outdoor sales, the limit is four (4) per calendar year [1]. To exceed these limits, property owners must secure Conditional Use Permit approval from the Planning Commission [1].",
+    "refused": false,
+    "returned_city": "La Habra",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of La Habra Special Event Permit Application",
+        "section_reference": "Annual event-count restrictions",
+        "similarity": 0.964271006838741
+      }
+    ]
+  },
+  {
+    "expected_city": "La Habra",
+    "question": "What does a Conditional Use Permit cost in La Habra?",
+    "answer": "According to the City of La Habra Master Schedule of Fees, a Conditional Use Permit costs $6,759 [1].",
+    "refused": false,
+    "returned_city": "La Habra",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of La Habra Master Schedule of Fees",
+        "section_reference": "Conditional Use Permit and related discretionary planning fees",
+        "similarity": 0.93998122215271
+      }
+    ]
+  },
+  {
+    "expected_city": "La Habra",
+    "question": "What size tent requires a building permit in La Habra?",
+    "answer": "The provided passage does not specify the exact size of tent that triggers a building permit requirement; it only states that tents or canopies may require a temporary building permit depending on size, and applicants should contact the Chief Building Official before submitting an application [1]. This knowledge base does not have the specific size threshold yet.",
+    "refused": true,
+    "returned_city": "La Habra",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of La Habra Special Event Permit Application",
+        "section_reference": "Structure, sign, and other permit triggers",
+        "similarity": 0.876870810985571
+      }
+    ]
+  },
+  {
+    "expected_city": "La Habra",
+    "question": "What is the typical venue rental rate in La Habra?",
+    "answer": "While an overall citywide average rate is not detailed, Westridge Golf Club is the only address-verified wedding/event venue located within La Habra's city limits [1]. Its pricing starts at $7,230 for 50 guests, with an additional $1,700 ceremony setup fee [1].",
+    "refused": false,
+    "returned_city": "La Habra",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Westridge Golf Club - Venue Listing",
+        "section_reference": "Westridge Golf Club",
+        "similarity": 0.904696231800544
+      }
+    ]
+  },
+  {
+    "expected_city": "Santa Ana",
+    "question": "I expect 300 attendees at my one-day activation in Santa Ana - is that a moderate or major event, and how far ahead do I need to apply?",
+    "answer": "An event with 300 attendees is classified as a Moderate event (101-1,000 attendees) in Santa Ana [1]. You must submit your application and site plan between 45 business days and 6 months before the first event date [1].",
+    "refused": false,
+    "returned_city": "Santa Ana",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Santa Ana Event Permit Application",
+        "section_reference": "Event size tiers and application deadlines",
+        "similarity": 0.943028811035825
+      }
+    ]
+  },
+  {
+    "expected_city": "Santa Ana",
+    "question": "What is the exact fee for a special event permit in Santa Ana?",
+    "answer": "There is no exact or fixed published fee for an event permit in Santa Ana [1]. Fees\u2014which may include permit fees, security deposits, police overtime fees, and meter parking fees\u2014are determined on a case-by-case, per-application basis following review by departments such as the Santa Ana Police Department, Reservations Admin/Athletics, and Parks Facility/Film [1].",
+    "refused": false,
+    "returned_city": "Santa Ana",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Santa Ana Event Permit Application",
+        "section_reference": "Event Permit fee: determined per-application, not a fixed published amount",
+        "similarity": 0.924940815560917
+      },
+      {
+        "title": "City of Santa Ana Planning Division Fee Schedule (FY 2026-2027)",
+        "section_reference": "Temporary/seasonal use and sign-related fees",
+        "similarity": 0.878494162424877
+      }
+    ]
+  },
+  {
+    "expected_city": "Santa Ana",
+    "question": "What insurance does Santa Ana require for an event permit?",
+    "answer": "Santa Ana requires commercial general liability insurance that covers bodily/personal injury and property damage resulting from event operations (including vehicles) [1]. The insurance must be primary and non-contributing, and it must name the City of Santa Ana, its officers, employees, agents, volunteers, and representatives as additional insureds [1]. Coverage amounts are set individually by the Risk Management office, typically ranging from $1,000,000 to $5,000,000 per occurrence based on the event's specific risk level [1].",
+    "refused": false,
+    "returned_city": "Santa Ana",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Santa Ana Event Permit Application",
+        "section_reference": "Insurance requirements",
+        "similarity": 0.937222512447167
+      }
+    ]
+  },
+  {
+    "expected_city": "Santa Ana",
+    "question": "What does a Conditional Use Permit cost in Santa Ana?",
+    "answer": "According to the City of Santa Ana Planning Division Fee Schedule (FY 2026-2027), the cost of a Conditional Use Permit varies by type: $7,485 for a General Conditional Use Permit, $6,687 for a Conditional Use Permit for an ABC License (with public notice/comment included), and $11,769 for a Planned Residential Development Conditional Use Permit [1]. Additionally, a 7% technology fee applies per transaction on top of these base fees [1].",
+    "refused": false,
+    "returned_city": "Santa Ana",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Santa Ana Planning Division Fee Schedule (FY 2026-2027)",
+        "section_reference": "Conditional Use Permit and related discretionary planning fees",
+        "similarity": 0.944109678268439
+      }
+    ]
+  },
+  {
+    "expected_city": "Santa Ana",
+    "question": "What is the typical venue rental rate in Santa Ana?",
+    "answer": "While the passages do not specify a single average or standard \"typical\" rate, starting prices for Santa Ana venues vary depending on the service tier: \n- Raw space venues start between $1,000 and $3,000, including Orange County Mining Co. ($1,000) [3], Tustin Hills Racquet Club ($1,000) [4], McFadden Public Market ($1,500) [5], and Heritage Museum of Orange County ($3,000) [6].\n- Select services venues like Lakeside Orange County Airport Hotel start at $1,799 [2].\n- All-inclusive venues like Ebell Club of Santa Ana start at $15,000 [1].\n\nActual costs vary based on date, season, and negotiated add-ons [1, 2, 3, 4, 5, 6].",
+    "refused": false,
+    "returned_city": "Santa Ana",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Ebell Club of Santa Ana - Zola Venue Listing",
+        "section_reference": "Ebell Club of Santa Ana",
+        "similarity": 0.905674896151567
+      },
+      {
+        "title": "Lakeside Orange County Airport Hotel - Zola Venue Listing",
+        "section_reference": "Lakeside Orange County Airport Hotel",
+        "similarity": 0.903184533119202
+      },
+      {
+        "title": "Orange County Mining Co. - Zola Venue Listing",
+        "section_reference": "Orange County Mining Co.",
+        "similarity": 0.899143695831299
+      },
+      {
+        "title": "Tustin Hills Racquet Club - Zola Venue Listing",
+        "section_reference": "Tustin Hills Racquet Club",
+        "similarity": 0.89829009771347
+      },
+      {
+        "title": "McFadden Public Market - Zola Venue Listing",
+        "section_reference": "McFadden Public Market",
+        "similarity": 0.894686248740144
+      },
+      {
+        "title": "Heritage Museum of Orange County - Zola Venue Listing",
+        "section_reference": "Heritage Museum of Orange County",
+        "similarity": 0.883085515591071
+      }
+    ]
+  },
+  {
+    "expected_city": "Tustin",
+    "question": "What does a Large Gathering Use Permit cost in Tustin?",
+    "answer": "The fee for a Large Gathering Use Permit in Tustin is listed as a $1,103 deposit on the permit application form, while the city's Comprehensive Schedule of Fees lists a $2,243 deposit for the same permit line; both figures are current and it is not specified which applies at the time of filing [1].",
+    "refused": false,
+    "returned_city": "Tustin",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Tustin Large Gathering Use Permit Application",
+        "section_reference": "Large Gathering Use Permit: fee, insurance, and processing time",
+        "similarity": 0.960612540172036
+      }
+    ]
+  },
+  {
+    "expected_city": "Tustin",
+    "question": "At what tent size do I need Orange County Fire Authority approval for an event in Tustin?",
+    "answer": "For an event in Tustin, Orange County Fire Authority approval and inspection are required for tents over 400 square feet [1, 2].",
+    "refused": false,
+    "returned_city": "Tustin",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Tustin Temporary Use Permit Application",
+        "section_reference": "Temporary Use Permit: standard conditions (tents, alcohol, food, noise)",
+        "similarity": 0.934135798565401
+      },
+      {
+        "title": "City of Tustin Large Gathering Use Permit Application",
+        "section_reference": "Large Gathering Use Permit: same standard conditions as Temporary Use Permit",
+        "similarity": 0.93236255645752
+      }
+    ]
+  },
+  {
+    "expected_city": "Tustin",
+    "question": "What insurance does a Large Gathering Use Permit require in Tustin?",
+    "answer": "A Large Gathering Use Permit in Tustin requires a Certificate of Insurance that names the City of Tustin as additionally insured for $1,000,000 [1].",
+    "refused": false,
+    "returned_city": "Tustin",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Tustin Large Gathering Use Permit Application",
+        "section_reference": "Large Gathering Use Permit: fee, insurance, and processing time",
+        "similarity": 0.951234766620143
+      }
+    ]
+  },
+  {
+    "expected_city": "Tustin",
+    "question": "What does a Conditional Use Permit cost in Tustin?",
+    "answer": "According to the City of Tustin's 2026-2027 fee schedule, a Conditional Use Permit (Planning Commission) requires a $5,875 deposit [1]. Additionally, a Master Sign Plan - Conditional Use Permit requires a $2,937 deposit [1].",
+    "refused": false,
+    "returned_city": "Tustin",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Tustin Comprehensive Schedule of Fees (2026-2027)",
+        "section_reference": "Discretionary planning fees",
+        "similarity": 0.927951335906989
+      }
+    ]
+  },
+  {
+    "expected_city": "Tustin",
+    "question": "What is the typical venue rental rate in Tustin?",
+    "answer": "The provided information does not give an overall typical venue rental rate across Tustin, but it lists Prego Mediterranean\u2014the only address-verified venue found within Tustin city limits\u2014with a starting price of $2,462 for 50 guests, with actual costs varying based on date, season, and add-ons [1].",
+    "refused": false,
+    "returned_city": "Tustin",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Prego Mediterranean - Venue Listing",
+        "section_reference": "Prego Mediterranean",
+        "similarity": 0.901587930369018
+      }
+    ]
+  },
+  {
+    "expected_city": "Buena Park",
+    "question": "How far ahead must I apply for a temporary use permit in Buena Park, and what does it cost?",
+    "answer": "You must apply for a Temporary Use Permit in Buena Park at least 30 days prior to the event date [1]. The permit requires a $545.00 non-refundable filing fee [1, 2].",
+    "refused": false,
+    "returned_city": "Buena Park",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Buena Park Temporary Use Permit Application",
+        "section_reference": "Temporary Use Permit: fee, deadline, and requirements",
+        "similarity": 0.966944515705109
+      },
+      {
+        "title": "City of Buena Park Planning Department Schedule of Fees",
+        "section_reference": "Temporary use and miscellaneous fees",
+        "similarity": 0.888267278671265
+      }
+    ]
+  },
+  {
+    "expected_city": "Buena Park",
+    "question": "What does a Major Conditional Use Permit cost in Buena Park?",
+    "answer": "In Buena Park, a Major Conditional Use Permit costs $4,575, which serves as a deposit covering up to 15 hours of planner time, with additional hours billed at the fully-burdened hourly rate [1].",
+    "refused": false,
+    "returned_city": "Buena Park",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Buena Park Planning Department Schedule of Fees",
+        "section_reference": "Conditional Use Permit and Variance fees",
+        "similarity": 0.962554097175598
+      }
+    ]
+  },
+  {
+    "expected_city": "Buena Park",
+    "question": "What does a Minor Conditional Use Permit cost in Buena Park?",
+    "answer": "In Buena Park, a Minor Conditional Use Permit costs $2,885 [1].",
+    "refused": false,
+    "returned_city": "Buena Park",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Buena Park Planning Department Schedule of Fees",
+        "section_reference": "Conditional Use Permit and Variance fees",
+        "similarity": 0.952998757362366
+      }
+    ]
+  },
+  {
+    "expected_city": "Buena Park",
+    "question": "What does a Variance cost in Buena Park?",
+    "answer": "In Buena Park, a Variance costs $3,030 according to the Planning Department Schedule of Fees [1].",
+    "refused": false,
+    "returned_city": "Buena Park",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Buena Park Planning Department Schedule of Fees",
+        "section_reference": "Conditional Use Permit and Variance fees",
+        "similarity": 0.901713934591828
+      }
+    ]
+  },
+  {
+    "expected_city": "Buena Park",
+    "question": "What is the typical venue rental rate in Buena Park?",
+    "answer": "While an overall average typical rate is not specified, starting prices for event venues in Buena Park range from $1,000 for raw space at Claim Jumper [1] to $7,500 for select services at Los Coyotes Country Club [2]. Actual costs vary depending on date, season, and negotiated add-ons [1, 2].",
+    "refused": false,
+    "returned_city": "Buena Park",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Claim Jumper - Buena Park - Zola Venue Listing",
+        "section_reference": "Claim Jumper - Buena Park",
+        "similarity": 0.919834022531867
+      },
+      {
+        "title": "Los Coyotes Country Club - Zola Venue Listing",
+        "section_reference": "Los Coyotes Country Club",
+        "similarity": 0.894433219236157
+      }
+    ]
+  },
+  {
+    "expected_city": "Stanton",
+    "question": "What does a Temporary Use Permit cost in Stanton?",
+    "answer": "According to the City of Stanton Community Development Fee Schedule effective July 1, 2026, a Temporary Use Permit costs $1,180 (an increase from $1,146) [1].",
+    "refused": false,
+    "returned_city": "Stanton",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Stanton Community Development Fee Schedule (effective 7/1/2026)",
+        "section_reference": "Special Event and Temporary Use Permit fees",
+        "similarity": 0.93697101253444
+      }
+    ]
+  },
+  {
+    "expected_city": "Stanton",
+    "question": "What is a typical venue rental rate in Stanton?",
+    "answer": "The provided knowledge base does not contain information on typical venue rental rates in Stanton. For the Stanton Civic Center (City Hall Ballroom), no starting prices are published online, and current rates must be obtained directly by contacting the city's Community Services division [1].",
+    "refused": true,
+    "returned_city": "Stanton",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "Stanton Civic Center (City Hall Ballroom) - Facility Rental",
+        "section_reference": "Stanton Civic Center (City Hall Ballroom)",
+        "similarity": 0.904789880631847
+      }
+    ]
+  },
+  {
+    "expected_city": "Stanton",
+    "question": "What does a Special Events Permit cost in Stanton?",
+    "answer": "According to Stanton's Community Development Fee Schedule, a Special Events Permit costs $199 (effective July 1, 2026, increased from $193) [1].",
+    "refused": false,
+    "returned_city": "Stanton",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Stanton Community Development Fee Schedule (effective 7/1/2026)",
+        "section_reference": "Special Event and Temporary Use Permit fees",
+        "similarity": 0.963374376297004
+      }
+    ]
+  },
+  {
+    "expected_city": "Stanton",
+    "question": "What does a Conditional Use Permit cost in Stanton?",
+    "answer": "According to the City of Stanton fee schedule effective July 1, 2026, a Conditional Use Permit costs $2,972 (up from $2,885), a Major Conditional Use Permit/Amendment costs $3,153 (up from $3,061), and an Administrative Review for a Minor CUP costs $1,757 (up from $1,706) [1].",
+    "refused": false,
+    "returned_city": "Stanton",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Stanton Community Development Fee Schedule (effective 7/1/2026)",
+        "section_reference": "Conditional Use Permit, Variance, and related discretionary fees",
+        "similarity": 0.913959557650065
+      }
+    ]
+  },
+  {
+    "expected_city": "Stanton",
+    "question": "What does a Variance cost in Stanton?",
+    "answer": "According to the City of Stanton Community Development Fee Schedule effective July 1, 2026, a Variance costs $2,508 (up from $2,435), while an Administrative Review for a Minor Variance costs $1,757 (up from $1,706) [1].",
+    "refused": false,
+    "returned_city": "Stanton",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Stanton Community Development Fee Schedule (effective 7/1/2026)",
+        "section_reference": "Conditional Use Permit, Variance, and related discretionary fees",
+        "similarity": 0.830938746389077
+      }
+    ]
+  },
+  {
+    "expected_city": "Orange",
+    "question": "What does a special event permit cost in the city of Orange?",
+    "answer": "In the City of Orange, a Special Event Application/Permit costs $110 each, plus actual cost [1]. If the event is held specifically in a City park, a Special Event Park Permit has a $60 application fee [1]. Additionally, if OC Fire Authority (OCFA) special event permits are required, fees vary with no fixed base rate and are determined based on the event's type, size, public safety impact, and applicable fire code permits [2].",
+    "refused": false,
+    "returned_city": "Orange",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Orange Master Schedule of Fees and Charges (Res. No. 11517, Jan. 2024)",
+        "section_reference": "Special Event and Temporary Use Permit fees (Community Development - Planning Division)",
+        "similarity": 0.966997923433906
+      },
+      {
+        "title": "OC Fire Authority: Special Event Permits (Prevention Field Services)",
+        "section_reference": "Costs",
+        "similarity": 0.891684664287017
+      }
+    ]
+  },
+  {
+    "expected_city": "Orange",
+    "question": "What is the typical market rental rate for a wedding venue in Orange?",
+    "answer": "Starting market rental rates for wedding venues in Orange, CA vary by service tier:\n\n- **Raw space:** Starting at $1,500 (e.g., Orange Hill Restaurant [2], Fireside Farm OC [4]).\n- **Select services:** Starting from $4,500 to $5,325 (e.g., The French Estate [5], The Villa | Weddings & Events [3]).\n- **All-inclusive:** Starting from $10,000 to $13,000 (e.g., The Vintage Rose [6], The Estate OC [1]).\n\nActual costs vary based on date, season, and negotiated add-ons [1, 2, 3, 4, 5, 6].",
+    "refused": false,
+    "returned_city": "Orange",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "The Estate OC - Zola Venue Listing",
+        "section_reference": "The Estate OC",
+        "similarity": 0.920009369850719
+      },
+      {
+        "title": "Orange Hill Restaurant - Zola Venue Listing",
+        "section_reference": "Orange Hill Restaurant",
+        "similarity": 0.912653647004394
+      },
+      {
+        "title": "The Villa | Weddings & Events - Zola Venue Listing",
+        "section_reference": "The Villa | Weddings & Events",
+        "similarity": 0.911590565632649
+      },
+      {
+        "title": "Fireside Farm OC - Zola Venue Listing",
+        "section_reference": "Fireside Farm OC",
+        "similarity": 0.907323826232413
+      },
+      {
+        "title": "The French Estate - Zola Venue Listing",
+        "section_reference": "The French Estate",
+        "similarity": 0.903248846530921
+      },
+      {
+        "title": "The Vintage Rose - Zola Venue Listing",
+        "section_reference": "The Vintage Rose",
+        "similarity": 0.888728936498965
+      }
+    ]
+  },
+  {
+    "expected_city": "Orange",
+    "question": "What is the difference between the Special Event Permit fee and the Special Event Park Permit fee in Orange?",
+    "answer": "In Orange, the Special Event Application/Permit fee is $110 each, plus actual cost, managed through the Planning Division for uses like private-property activations [1]. In contrast, the Special Event Park Permit involves a $60 application fee through the Community Services Department specifically for events held in a City park [1].",
+    "refused": false,
+    "returned_city": "Orange",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Orange Master Schedule of Fees and Charges (Res. No. 11517, Jan. 2024)",
+        "section_reference": "Special Event and Temporary Use Permit fees (Community Development - Planning Division)",
+        "similarity": 0.950451442518574
+      }
+    ]
+  },
+  {
+    "expected_city": "Orange",
+    "question": "What does a Conditional Use Permit or Variance cost in Orange?",
+    "answer": "In Orange, a Conditional Use Permit (CUP) or Variance processed by either the Zoning Administrator or the Planning Commission requires a $3,000 deposit and is billed at actual cost [1]. A Planning Commission Modification to a CUP or Variance also requires a $3,000 deposit [1].",
+    "refused": false,
+    "returned_city": "Orange",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Orange Master Schedule of Fees and Charges (Res. No. 11517, Jan. 2024)",
+        "section_reference": "Conditional Use Permit, Variance, and Zoning Verification fees",
+        "similarity": 0.844284023174168
+      }
+    ]
+  },
+  {
+    "expected_city": "Orange",
+    "question": "What is the fee difference between a recurring and non-recurring Temporary Use Permit in Orange?",
+    "answer": "In Orange, a Temporary Use Permit for non-recurring uses costs $1,000, while a permit for recurring uses costs $387, resulting in a fee difference of $613 [1].",
+    "refused": false,
+    "returned_city": "Orange",
+    "retrieval_hops": 1,
+    "requery": null,
+    "citations": [
+      {
+        "title": "City of Orange Master Schedule of Fees and Charges (Res. No. 11517, Jan. 2024)",
+        "section_reference": "Special Event and Temporary Use Permit fees (Community Development - Planning Division)",
+        "similarity": 0.906745260551856
+      }
+    ]
+  }
+]
