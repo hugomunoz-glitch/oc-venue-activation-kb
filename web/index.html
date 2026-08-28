@@ -56,15 +56,25 @@
     color: var(--muted);
     margin-bottom: 24px;
   }
-  form { display: flex; gap: 8px; margin-bottom: 8px; }
+  form { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
   input[type="text"] {
     flex: 1;
+    min-width: 200px;
     padding: 10px 14px;
     border-radius: 8px;
     border: 1px solid var(--border);
     background: var(--bg);
     color: var(--fg);
     font-size: 1rem;
+  }
+  select#city-filter {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 1rem;
+    max-width: 180px;
   }
   button {
     padding: 10px 18px;
@@ -140,15 +150,18 @@
 
   <div class="scope-note">
     Ask a real question about hosting an activation (wedding reception, fitness pop-up, etc.) in Fullerton,
-    Anaheim, Brea, La Habra, Santa Ana, Tustin, Buena Park, Stanton, or Orange — name the city in your question (e.g. "in Anaheim") so the answer is scoped correctly; each
-    city's permits and fees are tracked separately on purpose. Every answer is synthesized only from cited
-    passages in this knowledge base — no outside knowledge, no invented numbers. It will tell you honestly
-    when the data isn't here, and it declines investment/purchase advice and revenue forecasts on purpose
-    (out of scope by design, not a bug).
+    Anaheim, Brea, La Habra, Santa Ana, Tustin, Buena Park, Stanton, or Orange — pick a city from the filter
+    below, or just name it in your question (e.g. "in Anaheim"); each city's permits and fees are tracked
+    separately on purpose. Every answer is synthesized only from cited passages in this knowledge base — no
+    outside knowledge, no invented numbers. It will tell you honestly when the data isn't here, and it
+    declines investment/purchase advice and revenue forecasts on purpose (out of scope by design, not a bug).
   </div>
 
   <form id="chat-form">
-    <input type="text" id="query" placeholder="e.g. What insurance does Fullerton require for a one-day activation?" autocomplete="off" />
+    <select id="city-filter" aria-label="Filter by city">
+      <option value="">Auto-detect city</option>
+    </select>
+    <input type="text" id="query" placeholder="e.g. What insurance is required for a one-day activation?" autocomplete="off" />
     <button type="submit" id="submit-btn">Ask</button>
   </form>
 
@@ -169,6 +182,7 @@
 
     const form = document.getElementById("chat-form");
     const input = document.getElementById("query");
+    const cityFilter = document.getElementById("city-filter");
     const statusEl = document.getElementById("status");
     const conversationEl = document.getElementById("conversation");
     const submitBtn = document.getElementById("submit-btn");
@@ -180,20 +194,39 @@
       });
     });
 
+    async function loadCities() {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/cities?select=id,name&order=name.asc`, {
+          headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+        });
+        if (!res.ok) throw new Error(`cities fetch failed: ${res.status}`);
+        const cities = await res.json();
+        for (const c of cities) {
+          const opt = document.createElement("option");
+          opt.value = c.id;
+          opt.textContent = c.name;
+          cityFilter.appendChild(opt);
+        }
+      } catch (err) {
+        console.error("Failed to load city list:", err);
+      }
+    }
+    loadCities();
+
     function escapeHtml(str) {
       const div = document.createElement("div");
       div.textContent = str ?? "";
       return div.innerHTML;
     }
 
-    async function askQuestion(question) {
+    async function askQuestion(question, cityId) {
       const res = await fetch(`${SUPABASE_URL}/functions/v1/answer`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify(cityId ? { question, city_id: cityId } : { question }),
       });
       if (!res.ok) throw new Error(`request failed: ${res.status}`);
       return res.json();
@@ -214,7 +247,7 @@
       conversationEl.prepend(turnEl);
 
       try {
-        const data = await askQuestion(q);
+        const data = await askQuestion(q, cityFilter.value);
         statusEl.textContent = "";
 
         const cardClass = data.out_of_scope || data.needs_city ? "out-of-scope" : data.refused ? "refused" : "";

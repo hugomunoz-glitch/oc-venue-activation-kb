@@ -267,7 +267,7 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const { question } = await req.json();
+    const { question, city_id } = await req.json();
     if (!question || typeof question !== "string") {
       return new Response(JSON.stringify({ error: "question (string) is required" }), {
         status: 400,
@@ -284,36 +284,52 @@ Deno.serve(async (req: Request) => {
     }
 
     const cities = await fetchCities();
-    const matchedCities = detectCity(question, cities);
+    let city: City;
 
-    if (matchedCities.length === 0) {
-      const cityList = cities.map((c) => c.name).join(", ");
-      return new Response(
-        JSON.stringify({
-          answer: `Which city is this about? This knowledge base currently covers: ${cityList}. Naming the city in your question (e.g. "in Anaheim") gets you a properly scoped answer.`,
-          refused: true,
-          out_of_scope: false,
-          needs_city: true,
-          citations: [],
-        }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
-    if (matchedCities.length > 1) {
-      const names = matchedCities.map((c) => c.name).join(" and ");
-      return new Response(
-        JSON.stringify({
-          answer: `This question mentions more than one city (${names}). Please ask about one city at a time - each city's permits and fees are tracked separately, and combining them risks mixing up which rule applies where.`,
-          refused: true,
-          out_of_scope: false,
-          needs_city: true,
-          citations: [],
-        }),
-        { headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
-    }
+    // An explicit city_id (e.g. from the UI's city filter dropdown) skips
+    // keyword auto-detection entirely - the caller has already told us
+    // which city this is about, so there's nothing to disambiguate.
+    if (city_id && typeof city_id === "string") {
+      const explicit = cities.find((c) => c.id === city_id);
+      if (!explicit) {
+        return new Response(JSON.stringify({ error: `unknown city_id: ${city_id}` }), {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+      city = explicit;
+    } else {
+      const matchedCities = detectCity(question, cities);
 
-    const city = matchedCities[0];
+      if (matchedCities.length === 0) {
+        const cityList = cities.map((c) => c.name).join(", ");
+        return new Response(
+          JSON.stringify({
+            answer: `Which city is this about? This knowledge base currently covers: ${cityList}. Naming the city in your question (e.g. "in Anaheim") or picking one from the city filter gets you a properly scoped answer.`,
+            refused: true,
+            out_of_scope: false,
+            needs_city: true,
+            citations: [],
+          }),
+          { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+      if (matchedCities.length > 1) {
+        const names = matchedCities.map((c) => c.name).join(" and ");
+        return new Response(
+          JSON.stringify({
+            answer: `This question mentions more than one city (${names}). Please ask about one city at a time - each city's permits and fees are tracked separately, and combining them risks mixing up which rule applies where.`,
+            refused: true,
+            out_of_scope: false,
+            needs_city: true,
+            citations: [],
+          }),
+          { headers: { ...corsHeaders, "Content-Type": "application/json" } }
+        );
+      }
+
+      city = matchedCities[0];
+    }
 
     const embedding = await embed(question);
     const hits = await hybridSearch(question, embedding, city.id);
