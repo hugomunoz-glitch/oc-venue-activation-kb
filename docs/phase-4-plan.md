@@ -17,9 +17,9 @@ Villa Park, a small residential enclave with little activation-venue
 activity). Garden Grove is the clear runner-up if a different ninth city is
 wanted later.
 
-**Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, and Santa Ana are
-ingested. The other four (Tustin, Buena Park, Stanton, Orange) are planned,
-not started.**
+**Status: Fullerton (Phase 1-3), Anaheim, Brea, La Habra, Santa Ana, and
+Tustin are ingested. The other three (Buena Park, Stanton, Orange) are
+planned, not started.**
 
 ## Architecture decisions (apply once, benefit every future city)
 
@@ -110,6 +110,19 @@ preference for not retrofitting abstractions onto working code.
 7. **Verify, don't just ingest.** Query `hybrid_search` scoped to the new
    city's `city_id` and confirm it returns the new content; scoped to an
    existing city's `city_id`, confirm nothing new leaked in.
+
+## Tustin: complete
+
+Municode.com now confirmed-blocked for the second city (after Santa Ana) -
+combined with amlegal.com and ecode360.com, every code-hosting platform
+this project has touched blocks automated fetches. A second genuine,
+unreconciled fee discrepancy this round (Large Gathering Permit: $1,103 on
+the application form vs. $2,243 on the general fee schedule) - two
+discrepancies in six cities suggests this is a real, recurring pattern in
+how cities publish fees across multiple documents, not a one-off. Also a
+second "Zola returns zero genuine local venues" case (after Brea) - worth
+checking a second marketplace (Wedding Spot, in this case) when Zola comes
+up empty, rather than concluding the city has no venues at all.
 
 ## Santa Ana: complete
 
