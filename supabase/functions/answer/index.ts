@@ -7,6 +7,13 @@ const SUPABASE_ANON_KEY = Deno.env.get("SUPABASE_ANON_KEY")!;
 const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY")!;
 const GEMINI_MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-flash-latest";
 
+// "gemini-flash-latest" is a moving alias - Google repointed it to a newer
+// model (confirmed via generateContent's own modelVersion field) that has
+// extended thinking on by default, silently adding 30-40s of latency per
+// call for a plain structured-classification/generation task that never
+// needed deliberation. thinkingBudget: 0 disables that reasoning step in
+// both Gemini calls below.
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, apikey, content-type",
@@ -167,6 +174,7 @@ ${requeryInstruction}`;
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0,
+          thinkingConfig: { thinkingBudget: 0 },
           responseMimeType: "application/json",
           responseSchema: {
             type: "object",
@@ -240,6 +248,7 @@ ${context}`;
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0,
+          thinkingConfig: { thinkingBudget: 0 },
           responseMimeType: "application/json",
           responseSchema: {
             type: "object",

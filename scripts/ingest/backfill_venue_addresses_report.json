@@ -1,0 +1,181 @@
+{
+  "updated": [
+    {
+      "name": "Anaheim Hills Golf Course",
+      "city": "Anaheim",
+      "address": "6501 Nohl Ranch Rd, Anaheim, CA 92807, USA"
+    },
+    {
+      "name": "The Anaheim Hotel",
+      "city": "Anaheim",
+      "address": "1700 S Harbor Blvd, Anaheim, CA 92802, USA"
+    },
+    {
+      "name": "The Grand Theater",
+      "city": "Anaheim",
+      "address": "2232 S Harbor Blvd, Anaheim, CA 92802, USA"
+    },
+    {
+      "name": "The Westin Anaheim Resort",
+      "city": "Anaheim",
+      "address": "1030 W Katella Ave, Anaheim, CA 92802, USA"
+    },
+    {
+      "name": "White House Banquets & Event Center",
+      "city": "Anaheim",
+      "address": "1238 S Beach Blvd, Anaheim, CA 92804, USA"
+    },
+    {
+      "name": "Claim Jumper - Buena Park",
+      "city": "Buena Park",
+      "address": "7971 Beach Blvd, Buena Park, CA 90620, USA"
+    },
+    {
+      "name": "Los Coyotes Country Club",
+      "city": "Buena Park",
+      "address": "8888 Los Coyotes Dr, Buena Park, CA 90621, USA"
+    },
+    {
+      "name": "City of Fullerton - Hunt Branch Library",
+      "city": "Fullerton",
+      "address": "201 S Basque Ave, Fullerton, CA 92833, USA"
+    },
+    {
+      "name": "Coyote Hills Golf Course",
+      "city": "Fullerton",
+      "address": "1440 E Bastanchury Rd, Fullerton, CA 92835, USA"
+    },
+    {
+      "name": "Fullerton Community Center",
+      "city": "Fullerton",
+      "address": "340 W Commonwealth Ave, Fullerton, CA 92832, USA"
+    },
+    {
+      "name": "Golleher Alumni House at Cal State Fullerton",
+      "city": "Fullerton",
+      "address": "Golleher Alumni House, N State College Blvd, Fullerton, CA 92831, USA"
+    },
+    {
+      "name": "Summit House Restaurant",
+      "city": "Fullerton",
+      "address": "2000 E Bastanchury Rd, Fullerton, CA 92835, USA"
+    },
+    {
+      "name": "The Muckenthaler Mansion",
+      "city": "Fullerton",
+      "address": "1201 W Malvern Ave, Fullerton, CA 92833, USA"
+    },
+    {
+      "name": "The Villa Del Sol",
+      "city": "Fullerton",
+      "address": "305 N Harbor Blvd, Fullerton, CA 92832, USA"
+    },
+    {
+      "name": "Fletcher Courtyards at American Family Living Ministries",
+      "city": "Orange",
+      "address": "c/o American Family Living Ministries, 1774 N Glassell St, Orange, CA 92865, USA"
+    },
+    {
+      "name": "La Petite Rose",
+      "city": "Orange",
+      "address": "1212 N Tustin St, Orange, CA 92867, USA"
+    },
+    {
+      "name": "Orange Hill Restaurant",
+      "city": "Orange",
+      "address": "6410 E Chapman Ave, Orange, CA 92869, USA"
+    },
+    {
+      "name": "The Estate OC",
+      "city": "Orange",
+      "address": "349 N Renee St, Orange, CA 92869, USA"
+    },
+    {
+      "name": "The French Estate",
+      "city": "Orange",
+      "address": "248 S Batavia St, Orange, CA 92868, USA"
+    },
+    {
+      "name": "The Villa | Weddings & Events",
+      "city": "Orange",
+      "address": "510 E Katella Ave, Orange, CA 92867, USA"
+    },
+    {
+      "name": "The Vintage Rose",
+      "city": "Orange",
+      "address": "1160 N Tustin St, Orange, CA 92867, USA"
+    },
+    {
+      "name": "Ebell Club of Santa Ana",
+      "city": "Santa Ana",
+      "address": "718 Mortimer St, Santa Ana, CA 92701, USA"
+    },
+    {
+      "name": "Heritage Museum of Orange County",
+      "city": "Santa Ana",
+      "address": "3101 W Harvard St, Santa Ana, CA 92704, USA"
+    },
+    {
+      "name": "Hotel Zessa, a DoubleTree by Hilton",
+      "city": "Santa Ana",
+      "address": "201 E MacArthur Blvd, Santa Ana, CA 92707, USA"
+    },
+    {
+      "name": "Lakeside Orange County Airport Hotel",
+      "city": "Santa Ana",
+      "address": "7 Hutton Centre Dr, Santa Ana, CA 92707, USA"
+    },
+    {
+      "name": "McFadden Public Market",
+      "city": "Santa Ana",
+      "address": "515 N Main St, Santa Ana, CA 92701, USA"
+    },
+    {
+      "name": "Tustin Hills Racquet Club",
+      "city": "Santa Ana",
+      "address": "11782 Simon Ranch Rd, Santa Ana, CA 92705, USA"
+    },
+    {
+      "name": "Embassy Suites by Hilton Brea - North Orange County",
+      "city": "Brea",
+      "address": "900 E Birch St, Brea, CA 92821, USA"
+    },
+    {
+      "name": "Westridge Golf Club",
+      "city": "La Habra",
+      "address": "1400 S La Habra Hills Dr, La Habra, CA 90631, USA"
+    },
+    {
+      "name": "Prego Mediterranean",
+      "city": "Tustin",
+      "address": "2409 Park Ave, Tustin, CA 92782, USA"
+    }
+  ],
+  "mismatches": [
+    {
+      "name": "Anaheim Marriott Suites",
+      "tagged_city": "Anaheim",
+      "real_address": "12015 Harbor Blvd, Garden Grove, CA 92840, USA",
+      "chunk_id": "2d2d325e-f81d-4ae2-a4f1-2bd33d2a815c"
+    },
+    {
+      "name": "Hotel Fera Anaheim, a DoubleTree by Hilton",
+      "tagged_city": "Anaheim",
+      "real_address": "100 The City Dr S, Orange, CA 92868, USA",
+      "chunk_id": "1e000a79-3236-48aa-8779-947bdb383b5b"
+    },
+    {
+      "name": "Fireside Farm OC",
+      "tagged_city": "Orange",
+      "real_address": "88 Fair Dr, Costa Mesa, CA 92626, USA",
+      "chunk_id": "fe2a1df6-4281-463a-b73a-b9d80621fbe6"
+    },
+    {
+      "name": "Orange County Mining Co.",
+      "tagged_city": "Santa Ana",
+      "real_address": "10000 S Crawford Canyon Rd, North Tustin, CA 92705, USA",
+      "chunk_id": "1360b0ba-b41f-4cb5-93a6-fd5df57c6520"
+    }
+  ],
+  "not_found": []
+}

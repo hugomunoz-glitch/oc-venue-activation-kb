@@ -246,3 +246,50 @@ Tustin's $1,103 vs. $2,243) remain by design - both are real, current,
 city-issued figures with no rule in this knowledge base for which applies
 at filing time, and the evaluation confirmed the system surfaces both
 honestly without being asked to.
+
+## Post-launch fixes: latency regression and venue addresses
+
+Two issues surfaced after the Railway deploy was already live and verified.
+
+**Every answer had gone from ~5s to 60-98s.** Root cause, found by
+instrumenting the `answer` function with per-step timing and one Gemini
+response-metadata log line: `gemini-flash-latest` is a moving alias, and
+Google had silently repointed it to a newer model (`gemini-3.7-flash`,
+confirmed via the response's own `modelVersion` field) with extended
+"thinking" on by default (`thoughtsTokenCount` present in `usageMetadata`)
+- adding 30-40s of pure deliberation to a call that only ever needed
+structured classification/generation, no reasoning. Retrieval itself
+(embed, hybrid_search, title fetch) was never the problem - all three
+stayed under 200ms throughout. Fix: `thinkingConfig: { thinkingBudget: 0 }`
+on both Gemini calls in `supabase/functions/answer/index.ts`, cutting
+latency back to single digits to low teens of seconds.
+
+**Venue-pricing chunks had no street address.** The Google Places-sourced
+venue chunks always included a full address, but the market-rate pricing
+chunks (Zola across five cities, plus one Eventective/Wedding
+marketplace/Wedding Spot listing each for Brea/La Habra/Tustin) only ever
+carried "(City, CA)" - never verified against an actual address, just
+trusted from the marketplace listing's own city label. Backfilled by
+looking up all 34 of these venues via Google Places Text Search
+(`scripts/ingest/backfill_venue_addresses.py`), inserting the verified
+address into each chunk, and re-embedding.
+
+That lookup also re-ran the address-verification check this project applies
+everywhere else, and it caught 4 real mismatches the original "(City, CA)"
+label had missed:
+
+- **Hotel Fera Anaheim** - tagged to Anaheim, real address is in Orange
+  (Orange is a tracked city) - retagged rather than deleted.
+- **Anaheim Marriott Suites** - real address is in Garden Grove (not a
+  tracked city) - excluded, same as the untracked-city exclusions from the
+  original Fullerton/Zola pull.
+- **Fireside Farm OC** - tagged to Orange, real address is in Costa Mesa
+  (not tracked) - excluded.
+- **Orange County Mining Co.** - tagged to Santa Ana, real address is in
+  North Tustin, an unincorporated community distinct from the City of
+  Tustin (not the same jurisdiction, so not a safe retag either) - excluded.
+
+30 of the 34 venues checked out clean on the first pass. The 4 mismatches
+were real gaps in the original "trust the marketplace's own city label"
+verification - not something the address backfill was expected to find,
+but a direct benefit of doing it properly.
