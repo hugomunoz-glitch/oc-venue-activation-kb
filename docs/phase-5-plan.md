@@ -108,3 +108,35 @@ Giggster's own explicit per-listing display, cross-checked by observing
 that a single search page correctly separated multiple distinct cities'
 worth of results - a structural signal, not a single fuzzy-matched API
 call standing alone.
+
+## Addresses and contact info: not obtainable, and one more real error found
+
+The user asked for street addresses and host contact info for the Giggster
+venues, matching what the Google Places-sourced venues already have.
+Checked directly against three live Giggster listing pages: none of them
+expose a real address ("exact location provided after booking" on every
+one) or any direct contact info (phone, email) - contact is routed only
+through Giggster's own in-platform messaging, by the platform's own design,
+the same reason Airbnb hides addresses until a booking is confirmed. This
+isn't a gap more searching can close; it's how the source works for every
+private-host listing on it.
+
+Checking those three listing pages individually surfaced a second real
+error beyond what the per-listing search-results display had already
+caught: the "6000 Sq. Ft. Open Space Gym" venue, ingested as Santa Ana at
+$75/hr, is actually in Irvine, CA per its own live listing page - Irvine is
+not a tracked city. Removed (`revenue_benchmarks` row, `chunks` row, and
+`documents` row all deleted; verified live that the same question now
+returns an honest refusal instead of the wrong answer). A second listing
+checked the same way, Fullerton's "Event Space / Open Studio Multipurpose
+Room(s)" at $49/hr, confirmed correct - genuinely Fullerton, and its
+generic-sounding name is verbatim from the listing itself, not a
+placeholder; the space simply has no branded business name.
+
+Only these two of the 35 Giggster venues have been individually verified
+against their own listing pages so far. The other 33 still rely only on
+the per-listing city label from the search-results page, which has now
+been shown to disagree with the listing's own page at least once. That risk
+is being held, not resolved: nothing else has been changed pending a
+decision on whether a full listing-by-listing re-check across all 35 is
+worth doing.
