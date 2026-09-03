@@ -133,10 +133,31 @@ Room(s)" at $49/hr, confirmed correct - genuinely Fullerton, and its
 generic-sounding name is verbatim from the listing itself, not a
 placeholder; the space simply has no branded business name.
 
-Only these two of the 35 Giggster venues have been individually verified
-against their own listing pages so far. The other 33 still rely only on
-the per-listing city label from the search-results page, which has now
-been shown to disagree with the listing's own page at least once. That risk
-is being held, not resolved: nothing else has been changed pending a
-decision on whether a full listing-by-listing re-check across all 35 is
-worth doing.
+Only these two of the 35 Giggster venues had been individually verified
+against their own listing pages at that point. The other 33 still relied
+only on the per-listing city label from the search-results page, which had
+already been shown to disagree with a listing's own page at least once.
+
+## Full listing-by-listing re-verification: complete
+
+Every remaining venue was individually checked against its own live
+listing page, the same way the two above were. Result: **all 34 venues
+still in the database check out correctly.** The Irvine/Santa Ana gym
+mismatch was an isolated error, not a symptom of a wider pattern - the
+per-listing city label on Giggster's search-results pages agreed with each
+listing's own page in every other case checked, across all 6 cities.
+
+One genuine bonus came out of this pass: "Roomy Urban Space (Casa 723
+Fullerton)" turned out to be a real, independently operating public
+business (a shop/event space with its own website, Facebook page, and
+Tripadvisor listing), not a private host. Unlike every other Giggster
+listing checked, its own listing page does show a real address, and that
+address (723 S. Harbor Blvd, Fullerton, CA 92832) was independently
+confirmed via its own public presence, not obtained by working around
+Giggster's booking-gate. Its chunk content and `revenue_benchmarks` note
+were updated accordingly.
+
+The address/contact-info limitation described above still holds for every
+other Giggster venue: none of them expose a real address or direct contact
+info anywhere public, Casa 723 is the one exception because it isn't
+actually a private host listing underneath.
